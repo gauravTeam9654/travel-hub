@@ -1,0 +1,47 @@
+/* Hero */
+.terms-hero {
+  position: relative;
+  height: 46vh;
+  min-height: 260px;
+  background: url('/arunachal-final.png') center/cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.terms-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 80%);
+}
+.terms-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 24px 32px;
+}
+.terms-hero-inner h1 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin: 0 0 8px 0;
+}
+
+/* Main */
+.terms-main {
+  max-width: 980px;
+  margin: 32px auto 80px auto;
+  padding: 0 24px;
+}
+.terms-section { margin-bottom: 28px; }
+.terms-section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.terms-content ul { padding-left: 18px; }
+.terms-content li { margin-bottom: 6px; line-height: 1.6; }
+
+/* Responsive */
+@media (max-width: 700px) {
+  .terms-hero-inner { padding: 20px 16px; }
+  .terms-hero-inner h1 { font-size: 1.8rem; }
+  .terms-main { padding: 0 16px; }
+}

@@ -1,0 +1,104 @@
+/* Navbar container */
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* space between logo and nav items */
+  padding: 0 40px;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}
+
+/* Centered nav links */
+.navbar-desktop-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1; /* take remaining space to stay centered */
+  gap: 32px;
+}
+
+/* Fix desktop logo alignment */
+.navbar-desktop-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 40px;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-title {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Mega dropdown styling */
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  gap: 24px;
+  background: white;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 999;
+}
+
+/* Nav link base */
+.nav-links li {
+  list-style: none;
+  font-weight: 500;
+  color: #222;
+  transition: color 0.2s;
+}
+
+.nav-links li:hover {
+  color: #ff6600;
+}
+
+/* Mobile adjustments */
+.mobile-navbar-row {
+  display: none;
+}
+
+/* Mobile menu center alignment */
+.mobile-menu {
+  background: #fff;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  right: 0;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.15);
+  z-index: 2000;
+}
+
+/* Responsive behavior */
+@media (max-width: 992px) {
+  .navbar-desktop-logo,
+  .navbar-desktop-center {
+    display: none;
+  }
+  .mobile-navbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+  }
+}

@@ -1,0 +1,49 @@
+/* Hero */
+.privacy-hero {
+  position: relative;
+  height: 46vh;
+  min-height: 260px;
+  background: url('/arunachal-final.png') center/cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.privacy-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 80%);
+}
+.privacy-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 24px 32px;
+}
+.privacy-hero-inner h1 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin: 0 0 6px 0;
+}
+.privacy-tagline { color: #f3f3f3; margin: 0; }
+
+/* Main */
+.privacy-main {
+  max-width: 980px;
+  margin: 32px auto 80px auto;
+  padding: 0 24px;
+}
+.privacy-section { margin-bottom: 28px; }
+.privacy-section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.privacy-content ul { padding-left: 18px; }
+.privacy-content li { margin-bottom: 6px; line-height: 1.6; }
+.privacy-note { color: #555; margin-top: 8px; }
+
+/* Responsive */
+@media (max-width: 700px) {
+  .privacy-hero-inner { padding: 20px 16px; }
+  .privacy-hero-inner h1 { font-size: 1.8rem; }
+  .privacy-main { padding: 0 16px; }
+}

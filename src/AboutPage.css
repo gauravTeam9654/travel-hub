@@ -1,0 +1,99 @@
+.about-grid {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; 
+  gap: 24px;
+  align-items: start;
+}
+
+.about-image {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  object-fit: cover;
+}
+
+.about-text {
+  margin-left: 8px; 
+}
+
+.about-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.about-copy {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Mobile: stack like reference - small image on left, title to the right */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* stack */
+    gap: 16px;
+    margin: 20px auto;
+  }
+
+  /* First row: create a compact media-object layout */
+  .about-grid .about-image {
+    width: 160px;
+    height: 110px;
+    border-radius: 12px;
+    margin: 0 12px 0 0;
+  }
+
+  /* Wrap heading and a short intro next to the thumbnail on small screens */
+  .about-text {
+    margin-left: 0;
+  }
+
+  /* Use a media-object: place image and a short heading row */
+  .about-grid {
+    display: block;
+  }
+
+  .about-grid > .about-image,
+  .about-grid > .about-text {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .about-grid > .about-text {
+    width: calc(100% - 172px); /* 160 + 12 margin */
+  }
+
+  .about-title {
+    font-size: 22px;
+    line-height: 1.2;
+    margin-top: 4px;
+  }
+
+  .about-copy {
+    font-size: 14px;
+  }
+}
+
+/* Extra small: stack fully for very narrow widths */
+@media (max-width: 430px) {
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid > .about-image,
+  .about-grid > .about-text {
+    display: block;
+    width: 100%;
+  }
+
+  .about-grid .about-image {
+    width: 100%;
+    height: auto;
+    margin: 0 0 8px 0;
+  }
+}

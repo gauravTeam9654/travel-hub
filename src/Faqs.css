@@ -1,0 +1,48 @@
+
+.faq-page-container {
+  max-width: 1200px;
+  margin: 24px auto 40px auto;
+  padding: 0 24px; 
+  box-sizing: border-box;
+}
+
+.faq-page-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin-bottom: 28px;
+}
+
+.faq-page-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 16px 0 12px 0;
+}
+
+.faq-page-container .faq-accordion-box {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 720px; 
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .faq-page-container { padding: 0 20px; }
+}
+@media (max-width: 600px) {
+  .faq-page-container { padding: 0 16px; }
+    .faq-page-container { padding: 0 16px; overflow-x: hidden; }
+  /* extra safety: add equal padding at the section level as well */
+  .faq-page-section { padding: 0 0; width: 100%; }
+  .faq-page-heading { font-size: 1.5rem; }
+  .faq-page-container .faq-accordion-box {
+    padding: 24px 16px;
+    /* force equal margins left/right even if a parent changes padding */
+    width: calc(100% - 32px); /* 16px on both sides */
+    max-width: none; /* allow the calc to control width on tiny screens */
+  box-sizing: border-box;
+  }
+}

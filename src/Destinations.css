@@ -1,0 +1,119 @@
+/* Destinations page hero */
+.destinations-hero {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  height: 52vh;
+  background: url('/arunachal-final.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+.destinations-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.26);
+}
+.destinations-hero .gradient {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+.destinations-hero .hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.destinations-hero h1 {
+  color: #111;
+  font-size: 56px;
+  font-weight: 800;
+  margin: 0 0 0 32px;
+}
+
+/* Intro copy */
+.destinations-intro {
+  background: #fff;
+  padding: 40px 16px 0 16px;
+}
+.destinations-intro .intro-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.destinations-intro h2 {
+  font-size: 34px;
+  margin: 0 0 12px 0;
+}
+.destinations-intro p {
+  color: #333;
+  line-height: 1.7;
+  margin: 0 auto 10px auto;
+  max-width: 900px;
+}
+
+/* Wrap existing WhyChoose section to control spacing */
+.why-choose-wrap { max-width: 1200px; margin: 0 auto; padding: 16px; }
+
+/* Testimonials shared styles */
+.tj-testimonials {
+  background: linear-gradient(90deg, #ff914d 0%, #ff6e40 100%);
+  color: #fff;
+  padding: 60px 16px;
+}
+.tj-testimonials-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.tj-testimonials-left { flex: 1; min-width: 300px; max-width: 520px; }
+.tj-testimonials-left h2 { font-size: 36px; font-weight: 700; margin: 0 0 16px 0; }
+.tj-testimonials-left p { font-size: 18px; margin: 0 0 18px 0; color: #fff; }
+.tj-testimonials-left button { background: #111; color: #fff; border: 0; border-radius: 6px; padding: 12px 22px; font-weight: 600; cursor: pointer; }
+.tj-stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 22px; }
+.tj-stat { background: #fff; color: #ff6600; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); padding: 18px 22px; min-width: 150px; text-align: center; }
+.tj-stat .val { font-weight: 700; font-size: 22px; color: #222; }
+.tj-stat .lbl { color: #222; font-size: 15px; }
+
+.tj-testimonials-right { flex: 1; min-width: 300px; max-width: 580px; display: flex; justify-content: center; }
+.tj-swiper-wrap { width: 100%; max-width: 520px; }
+.tj-slide { background: rgba(255,255,255,0.08); border-radius: 15px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); padding: 36px 26px; min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.tj-slide .quote { font-style: italic; color: #fff; margin: 0 0 14px 0; text-align: center; font-size: 18px; }
+.tj-slide .name { font-weight: 600; color: #fff; }
+.tj-slide .loc { color: #ffe0b2; font-size: 15px; }
+
+/* Remove hover effects from testimonial slides */
+.tj-testimonials .swiper-slide div:hover {
+  transform: none !important;
+}
+
+/* Ensure no background effects on testimonial names and locations */
+.tj-slide .name,
+.tj-slide .loc {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Remove any potential text selection background */
+.tj-slide .name::selection,
+.tj-slide .loc::selection {
+  background: transparent !important;
+}
+
+@media (max-width: 700px) {
+  .destinations-hero { height: 42vh; min-height: 300px; }
+  .destinations-hero h1 { font-size: 36px; margin-left: 16px; }
+  .destinations-intro h2 { font-size: 28px; }
+  /* Make stats 2x2 grid on small screens */
+  .tj-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .tj-stat { min-width: 0; padding: 14px 12px; }
+}
