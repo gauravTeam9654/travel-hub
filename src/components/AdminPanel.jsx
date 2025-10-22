@@ -803,6 +803,7 @@ import {
 import { auth, db } from "../../firebaseConfig";
 import "../AdminPanel.css";
 import DashboardImageManager from "./crousel";
+import AddTripPage from "./international_data";
 
 const initialForm = {
   image: "",
@@ -1284,6 +1285,7 @@ const AdminPanel = () => {
       )}
     </div>
     <DashboardImageManager/>
+    <AddTripPage/>
     </>
   );
 };

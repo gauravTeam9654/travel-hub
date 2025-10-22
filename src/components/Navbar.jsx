@@ -62,12 +62,12 @@ const Navbar = ({ fixed = false }) => {
       </div>
 
       {/* Desktop Logo */}
-      <div className="navbar-desktop-logo" style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
-        <img src="/logo-final.png" alt="TravelHub" style={{ height: '100px', width: 'auto', display: 'block' }} />
-      </div>
 
       {/* Desktop Menu */}
       <ul className="nav-links navbar-desktop-center">
+      <div className="navbar-desktop-logo" style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
+        <img src="/logo-final.png" alt="TravelHub" style={{ height: '100px', width: 'auto', display: 'block' }} />
+      </div>
         <li><Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Home</Link></li>
 
         {/* Tour Packages Dropdown */}
@@ -79,7 +79,8 @@ const Navbar = ({ fixed = false }) => {
             <div className="dropdown-menu mega-menu">
               {destinations.map(dest => (
                 <div key={dest.slug || dest.id} style={{ marginRight: 24 }}>
-                  <h4 style={{ color: '#ff6600', marginBottom: 8 }}>{dest.name}</h4>
+                  <h4 style={{ color: '#ff6600', marginBottom: 8 }}     onClick={() => navigate(null)}>{dest.name}</h4>
+                  
                   <ul>
                     {dest.highlights && dest.highlights.length > 0 ? (
                       dest.highlights.map(pkg => (
@@ -137,7 +138,7 @@ const Navbar = ({ fixed = false }) => {
         </li> */}
 
         <li><Link to="/destination" style={{ textDecoration: 'none', color: 'inherit' }}>Destination</Link></li>
-        <li><Link to="/backpacking" style={{ textDecoration: 'none', color: 'inherit' }}>Backpacking Tour</Link></li>
+        {/* <li><Link to="/backpacking" style={{ textDecoration: 'none', color: 'inherit' }}>Backpacking Tour</Link></li> */}
         <li><Link to="/about" style={{ textDecoration: 'none', color: 'inherit' }}>About Us</Link></li>
       </ul>
 
@@ -162,7 +163,14 @@ const Navbar = ({ fixed = false }) => {
                   <ul className="mobile-submenu">
                     {destinations.map(dest => (
                       <li key={dest.slug || dest.id}>
-                        <span className="mobile-submenu-title" style={{ color: '#ff6600' }}>{dest.name}</span>
+                        {/* <span className="mobile-submenu-title" style={{ color: '#ff6600' }}>{dest.name}</span> */}
+                          <Link
+                            to={`/destination/${encodeURIComponent(dest.name)}`}
+                             style={{ color: '#ff6600', marginBottom: 8 }} 
+                            onClick={() => setActiveMenu(null)}
+                          >
+                            {dest.name}
+                          </Link>
                         {dest.packages?.length > 0 && (
                           <ul>
                             {dest.packages.map(pkg => (
