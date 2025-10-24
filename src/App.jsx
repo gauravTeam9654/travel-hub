@@ -45,7 +45,7 @@ const App = () => {
             </>
           }
         />
-  {/* Destinations overview page */}
+
   <Route path="/destination" element={<Destinations />} />
   <Route path="/destination/:slug" element={<DestinationPage />} />
   <Route path="/package/:slug" element={<PackagePage />} />
