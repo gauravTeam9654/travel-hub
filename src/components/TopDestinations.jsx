@@ -28,53 +28,33 @@ const TopDestinations = () => {
 
   return (
     <div className="top-destinations-container">
-      <h2 className="top-destinations-title">Top Destinations</h2>
-      <div className="destinations-grid">
-        {destinations.map((destination) => (
-          <Link
-            key={destination.id}
-            to={`/destination/${destination.slug || destination.name.replace(/\s+/g, '-').toLowerCase()}`}
-            style={{ textDecoration: 'none' }}
-            onClick={handleCardClick}
-          >
-            <div className="destination-card" style={{ position: 'relative', overflow: 'hidden' }}>
-              <img
-                src={destination.image}
-                alt={destination.name}
-                className="destination-image"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }}
-              />
-              <div style={{
-                position: 'absolute',
-                left: 0,
-                right: 0,
-                bottom: 0,
-                padding: '0 0 24px 0',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'flex-end',
-                height: '100%',
-                pointerEvents: 'none',
-              }}>
-                <span style={{
-                  color: '#fff',
-                  fontWeight: 700,
-                  fontSize: '2rem',
-                  textShadow: '0 2px 8px rgba(0,0,0,0.6)',
-                  fontFamily: 'inherit',
-                  letterSpacing: '0.5px',
-                  background: 'rgba(0,0,0,0.0)',
-                  borderRadius: '10px',
-                  padding: '0.2em 1em',
-                }}>
-                  {destination.name}
-                </span>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
+  <div className="top-destinations-header">
+    <h2 className="top-destinations-title">Explore Our Top Destinations</h2>
+    <p className="top-destinations-subtitle">
+      Discover breathtaking locations handpicked for your next adventure.
+    </p>
+  </div>
+
+  <div className="destinations-grid">
+    {destinations.map((destination) => (
+      <Link
+        key={destination.id}
+        to={`/destination/${destination.slug || destination.name.replace(/\s+/g, '-').toLowerCase()}`}
+        className="destination-card-link"
+        onClick={handleCardClick}
+      >
+        <div className="destination-card">
+          <div className="image-wrapper">
+            <img src={destination.image} alt={destination.name} />
+            <div className="image-overlay"></div>
+            <h3 className="destination-name">{destination.name}</h3>
+          </div>
+        </div>
+      </Link>
+    ))}
+  </div>
+</div>
+
   );
 };
 

@@ -38,7 +38,7 @@ const App = () => {
               <Hero />
               <TopDestinations />
               <WhyChoose />
-              <PackageSection title="Popular Bhutan Tour Packages" packages={mergePackages(bhutanBase)} />
+              <PackageSection title="Popular International Tour Packages" packages={mergePackages(bhutanBase)} />
               <CaptivatingDestinations />
               <Partners />
               <MergedFooter />

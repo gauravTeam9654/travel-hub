@@ -109,7 +109,7 @@ const MergedFooter = () => {
           gap: 24,
         }}
       >
-        {tourGuideData.map((section) => (
+        {/* {tourGuideData.map((section) => (
           <div key={section.title} style={{ minWidth: 180, flex: 1, marginBottom: 24 }}>
             <h4 style={{ fontWeight: 600, marginBottom: 12 }}>{section.title}</h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
@@ -148,7 +148,7 @@ const MergedFooter = () => {
               })}
             </ul>
           </div>
-        ))}
+        ))} */}
       </div>
       <hr style={{
         border: "none",
@@ -159,7 +159,7 @@ const MergedFooter = () => {
 
       <div style={{ marginTop: 40, display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 32 }}>
   <div style={{ minWidth: 220, flex: 1, marginBottom: 24 }}>
-          <img src="/logo-final.png" alt="TravelHub" style={{ width: 140, marginBottom: 16 }} />
+          <img src="/partners/logo.png" alt="TravelHub" style={{ width: 140, marginBottom: 16 }} />
           <div style={{ marginBottom: 16 }}>
             <img src="/bni.svg" alt="BNI" style={{ width: 50, marginRight: 8 }} />
             <img src="/iso.svg" alt="ISO" style={{ width: 50 }} />
@@ -169,10 +169,10 @@ const MergedFooter = () => {
             <span> {/* Social icons can be added here */} </span>
           </div>
           <div style={{ marginBottom: 8 }}>
-            <a href="#" style={{ color: "#3b5fc1", fontWeight: 500 }}>North East Cab</a> | <a href="#" style={{ color: "#3b5fc1", fontWeight: 500 }}>Sikkim Darjeeling Tourism</a>
+            {/* <a href="#" style={{ color: "#3b5fc1", fontWeight: 500 }}>North East Cab</a> | <a href="#" style={{ color: "#3b5fc1", fontWeight: 500 }}>Sikkim Darjeeling Tourism</a> */}
           </div>
           <div style={{ marginBottom: 8 }}>
-            <a href="/terms-and-conditions" style={{ color: "#3b5fc1", fontWeight: 500 }}>Terms & Conditions</a> | <a href="/privacy-policy" style={{ color: "#3b5fc1", fontWeight: 500 }}>Privacy Policy</a>
+            {/* <a href="/#/terms-and-conditions" style={{ color: "#3b5fc1", fontWeight: 500 }}>Terms & Conditions</a> | <a href="/#/privacy-policy" style={{ color: "#3b5fc1", fontWeight: 500 }}>Privacy Policy</a> */}
           </div>
           <div style={{ color: "#888", fontSize: 13 }}>
             © TravelHub Tourism. All rights reserved.
@@ -181,22 +181,22 @@ const MergedFooter = () => {
         <div style={{ minWidth: 180, flex: 1, marginBottom: 24 }}>
           <div style={{ fontWeight: 600, marginBottom: 12 }}>Quick Links</div>
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-            <li style={{ marginBottom: 18 }}><a href="/about" style={{ color: '#222', textDecoration: 'none' }}>About Us</a></li>
-            <li style={{ marginBottom: 18 }}><a href="/gallery" style={{ color: '#222', textDecoration: 'none' }}>Our Gallery</a></li>
-            <li style={{ marginBottom: 0, cursor: 'pointer' }} onClick={() => window.location.href='/b2b-enquiry'}>B2B Enquiry</li>
+            <li style={{ marginBottom: 18 }}><a href="/#/about" style={{ color: '#222', textDecoration: 'none' }}>About Us</a></li>
+            <li style={{ marginBottom: 18 }}><a href="/#/gallery" style={{ color: '#222', textDecoration: 'none' }}>Our Gallery</a></li>
+            {/* <li style={{ marginBottom: 0, cursor: 'pointer' }} onClick={() => window.location.href='/#/b2b-enquiry'}>B2B Enquiry</li> */}
           </ul>
         </div>
         <div style={{ minWidth: 180, flex: 1, marginBottom: 24 }}>
           <div style={{ fontWeight: 600, marginBottom: 12 }}>Corporate Tours</div>
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             <li style={{ marginBottom: 18 }}>
-              <a href="/corporate-tours" style={{ color: '#222', textDecoration: 'none' }}>Corporate Tours</a>
+              <a href="/#/corporate-tours" style={{ color: '#222', textDecoration: 'none' }}>Corporate Tours</a>
             </li>
-            <li style={{ marginBottom: 18 }}><a href="/terms-and-conditions" style={{ color: '#222', textDecoration: 'none' }}>Terms and Conditions</a></li>
-            <li style={{ marginBottom: 18 }}><a href="/privacy-policy" style={{ color: '#222', textDecoration: 'none' }}>Privacy Policy</a></li>
-            <li style={{ marginBottom: 18 }}><a href="/faq" style={{ color: '#222', textDecoration: 'none' }}>FAQ</a></li>
+            <li style={{ marginBottom: 18 }}><a href="/#/terms-and-conditions" style={{ color: '#222', textDecoration: 'none' }}>Terms and Conditions</a></li>
+            <li style={{ marginBottom: 18 }}><a href="/#/privacy-policy" style={{ color: '#222', textDecoration: 'none' }}>Privacy Policy</a></li>
+            <li style={{ marginBottom: 18 }}><a href="/#/faq" style={{ color: '#222', textDecoration: 'none' }}>FAQ</a></li>
             <li style={{ fontWeight: 600, marginBottom: 18 }}>
-              <a href="/tour-packages" style={{ color: '#222', textDecoration: 'none' }}>Popular Packages</a>
+              <a href="/#/tour-packages" style={{ color: '#222', textDecoration: 'none' }}>Popular Packages</a>
             </li>
             <li style={{ marginBottom: 0 }}>Best Travel Agency in India</li>
           </ul>

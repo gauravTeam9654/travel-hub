@@ -8,23 +8,23 @@ import "../style.css";
 
 const groupCompanies = [
   {
-    src: "/sk-dj-tourism.png",
-    alt: "Sikkim Darjeeling Tourism"
+    src: "/partners/mynk.jpeg",
+    alt: "/partners/Sikkim Darjeeling Tourism"
   },
   {
-    src: "/northeast-cab.png",
+    src: "/partners/mynk2.jpeg",
     alt: "Northeast Cab"
   }
 ];
 
 const hotelPartners = [
-  { src: "/partners/hotel1.png", alt: "Divine" },
-  { src: "/partners/hotel2.png", alt: "Lemon Tree Hotels" },
-  { src: "/partners/hotel3.png", alt: "The Deltin" },
-  { src: "/partners/hotel4.png", alt: "Ramada" },
+  { src: "/partners/Anantum.png", alt: "Divine" },
+  { src: "/partners/Araiya.png", alt: "Lemon Tree Hotels" },
+  { src: "/partners/mynk_hotel3.png", alt: "The Deltin" },
+  { src: "/partners/mynk_hotel4.png", alt: "Ramada" },
   { src: "/partners/hotel5.png", alt: "Taj" },
-  { src: "/partners/hotel6.png", alt: "Udaan Hotels & Resorts" },
-  { src: "/partners/hotel7.png", alt: "Other Partner" }
+  // { src: "/partners/hotel6.png", alt: "Udaan Hotels & Resorts" },
+  // { src: "/partners/hotel7.png", alt: "Other Partner" }
 ];
 
 

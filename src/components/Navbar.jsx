@@ -66,7 +66,7 @@ const Navbar = ({ fixed = false }) => {
       {/* Desktop Menu */}
       <ul className="nav-links navbar-desktop-center">
       <div className="navbar-desktop-logo" style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
-        <img src="/logo-final.png" alt="TravelHub" style={{ height: '100px', width: 'auto', display: 'block' }} />
+        <img src="/partners/logo.png" alt="TravelHub" style={{ height: '100px', width: 'auto', display: 'block' }} />
       </div>
         <li><Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Home</Link></li>
 

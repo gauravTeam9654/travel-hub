@@ -5,7 +5,7 @@ import PackageCard from './PackageCard';
 const PopularPackages = () => {
   return (
     <section className="popular-packages-section">
-      <h2>Popular Bhutan Tour Packages</h2>
+      <h2>Popular International Tour Packages</h2>
       <div className="popular-packages-cards">
         {bhutanPackages.map((pkg, idx) => (
           <div className="package-card" key={idx}>

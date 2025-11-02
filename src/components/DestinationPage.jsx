@@ -179,6 +179,98 @@ const DestinationPage = () => {
         </div>
 
         {/* 🧭 Tabs */}
+
+{/* 🧳 Extra Packages Section */}
+{dest.extraPackages && dest.extraPackages.length > 0 && (
+  <section
+    id="extra-packages"
+    style={{
+      margin: "60px 0",
+      padding: "40px 32px",
+      background: "#ffffff",
+      borderRadius: "16px",
+    }}
+  >
+    <h2
+      style={{
+        fontSize: "2rem",
+        fontWeight: "700",
+        color: "#1a237e",
+        marginBottom: "30px",
+        textAlign: "center",
+      }}
+    >
+      Explore More Packages
+    </h2>
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+        gap: "20px",
+      }}
+    >
+      {dest.extraPackages.map((pkg, index) => (
+        <div
+          key={index}
+          style={{
+            position: "relative",
+            borderRadius: "12px",
+            overflow: "hidden",
+            height: "250px",
+            cursor: "pointer",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+            transition: "transform 0.3s ease",
+          }}
+          onClick={() => {
+            // Optional: Navigate to a package details page if available
+            console.log("Clicked package:", pkg.title);
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+        >
+          <img
+            src={pkg.image}
+            alt={pkg.title}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2))",
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "center",
+              padding: "20px",
+            }}
+          >
+            <h3
+              style={{
+                color: "#fff",
+                fontSize: "1.4rem",
+                fontWeight: "600",
+                textAlign: "center",
+                textShadow: "0 2px 4px rgba(0,0,0,0.6)",
+              }}
+            >
+              {pkg.title}
+            </h3>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+
+
+
         <div className="destination-tabs" ref={guideRef}>
           {getTabsForDestination(dest.slug, dest.name).map((tab, idx) => (
             <button
