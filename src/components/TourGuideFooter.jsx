@@ -338,7 +338,7 @@ const MergedFooter = () => {
         </div>
         <div style={{ minWidth: 220, flex: 1, marginBottom: 24 }}>
           <div style={{ textAlign: "right" }}>
-            <div style={{ fontWeight: 600, marginBottom: 8 }}>GSTIN : <span style={{ fontWeight: 700 }}>19AATFT6367Q1ZS</span></div>
+            <div style={{ fontWeight: 600, marginBottom: 8 }}>GSTIN : <span style={{ fontWeight: 700 }}>07ASIPK7467P1ZU</span></div>
             <div style={{ marginBottom: 8 }}>9558515518 / 9083701454 / <span role="img" aria-label="phone">📞</span></div>
             <div style={{ marginBottom: 8 }}>info@travelhub.com <span role="img" aria-label="email">✉️</span></div>
             <div style={{ fontWeight: 600, marginBottom: 4 }}>Head Office : <span style={{ fontWeight: 400 }}>Shivmandir, Siliguri, Darjeeling – 734011</span></div>

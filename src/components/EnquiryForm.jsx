@@ -37,7 +37,7 @@ const EnquiryForm = () => {
           <input className="enquiry-input" type="number" name="children" placeholder="No of Childs" aria-label="Number of Children" min="0" />
         </div>
         <input className="enquiry-input" type="text" name="address" placeholder="Address" aria-label="Address" autoComplete="street-address" />
-        <button className="enquiry-btn" type="submit">Send Enquiry</button>
+        {/* <button className="enquiry-btn" type="submit">Send Enquiry</button> */}
       </form>
     </div>
   );

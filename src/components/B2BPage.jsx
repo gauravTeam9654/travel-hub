@@ -26,7 +26,7 @@ const B2BPage = () => {
               <input type="text" placeholder="Company Website (eg: https://yourwebsite.com)" />
             </div>
             <textarea placeholder="Write your Query*" required />
-            <button type="submit">Send Enquiry</button>
+            {/* <button type="submit">Send Enquiry</button> */}
           </form>
         </div>
       </div>

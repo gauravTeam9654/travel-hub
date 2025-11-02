@@ -77,7 +77,7 @@ const Testimonials = () => {
             can just enjoy the journey.
           </p>
 
-          <button
+          {/* <button
             onClick={() => (window.location.href = "/#enquiry")}
             style={{
               background:
@@ -102,7 +102,7 @@ const Testimonials = () => {
             }
           >
             Send Enquiry
-          </button>
+          </button> */}
 
           <div
             style={{
