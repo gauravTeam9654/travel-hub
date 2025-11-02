@@ -166,9 +166,9 @@ const MergedFooter = () => {
             <img src="/bni.svg" alt="BNI" style={{ width: 50, marginRight: 8 }} />
             <img src="/iso.svg" alt="ISO" style={{ width: 50 }} />
           </div>
-          <div style={{ fontWeight: 600, marginBottom: 8 }}>Follow Us</div>
+          {/* <div style={{ fontWeight: 600, marginBottom: 8 }}>Follow Us</div>
           <div style={{ display: "flex", gap: 10, marginBottom: 16, flexWrap: 'wrap' }}>
-            {/* Instagram */}
+         
             <a
               href="https://instagram.com/tripjyada"
               target="_blank"
@@ -192,7 +192,7 @@ const MergedFooter = () => {
                 <circle cx="17.5" cy="6.5" r="1.3" fill="#E1306C"/>
               </svg>
             </a>
-            {/* Facebook */}
+   
             <a
               href="https://facebook.com/tripjyada"
               target="_blank"
@@ -214,7 +214,7 @@ const MergedFooter = () => {
                 <path d="M22 12.06C22 6.55 17.52 2.08 12 2.08 6.48 2.08 2 6.55 2 12.06c0 4.97 3.66 9.09 8.44 9.88v-6.99H8.1v-2.89h2.34V9.41c0-2.3 1.37-3.57 3.46-3.57.99 0 2.03.18 2.03.18v2.24h-1.14c-1.12 0-1.47.7-1.47 1.42v1.71h2.5l-.4 2.89h-2.1v6.99C18.34 21.15 22 17.03 22 12.06z"/>
               </svg>
             </a>
-            {/* YouTube */}
+         
             <a
               href="https://youtube.com/@tripjyada"
               target="_blank"
@@ -237,7 +237,7 @@ const MergedFooter = () => {
                 <path d="M10 12.1V4.9l6 3.6-6 3.6Z" fill="#fff"/>
               </svg>
             </a>
-            {/* WhatsApp */}
+
             <a
               href="https://wa.me/919558515518"
               target="_blank"
@@ -260,7 +260,7 @@ const MergedFooter = () => {
                 <path fill="#25D366" d="M16.9 13.7c-.2-.1-1.3-.7-1.5-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.9 1-.2.2-.3.2-.6.1a7 7 0 0 1-3.3-2.9c-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.2 3.9.6.3 1 .5 1.3.6.5.2 1 .2 1.4.1.4-.1 1.3-.5 1.5-1.1.2-.6.2-1 .1-1.1-.1-.1-.2-.1-.3-.2Z"/>
               </svg>
             </a>
-            {/* Email */}
+   
             <a
               href="mailto:info@travelhub.com"
               aria-label="Email"
@@ -280,7 +280,7 @@ const MergedFooter = () => {
                 <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z" fill="#3b5fc1"/>
               </svg>
             </a>
-            {/* Phone */}
+  
             <a
               href="tel:+919558515518"
               aria-label="Call"
@@ -300,7 +300,7 @@ const MergedFooter = () => {
                 <path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2 .6 3.1.6.7 0 1.3.6 1.3 1.3v3.5c0 .7-.6 1.3-1.3 1.3C9.6 22 2 14.4 2 4.3 2 3.6 2.6 3 3.3 3H6.8c.7 0 1.3.6 1.3 1.3 0 1.1.2 2.1.6 3.1.2.4.1.9-.2 1.2l-1.9 2.2Z" fill="#25A55F"/>
               </svg>
             </a>
-          </div>
+          </div> */}
           <div style={{ marginBottom: 8 }}>
             {/* <a href="#" style={{ color: "#3b5fc1", fontWeight: 500 }}>North East Cab</a> | <a href="#" style={{ color: "#3b5fc1", fontWeight: 500 }}>Sikkim Darjeeling Tourism</a> */}
           </div>
@@ -331,7 +331,7 @@ const MergedFooter = () => {
             <li style={{ marginBottom: 18 }}><a href="/#/privacy-policy" style={{ color: '#222', textDecoration: 'none' }}>Privacy Policy</a></li>
             <li style={{ marginBottom: 18 }}><a href="/#/faq" style={{ color: '#222', textDecoration: 'none' }}>FAQ</a></li>
             <li style={{ fontWeight: 600, marginBottom: 18 }}>
-              <a href="/#/tour-packages" style={{ color: '#222', textDecoration: 'none' }}>Popular Packages</a>
+              {/* <a href="/#/tour-packages" style={{ color: '#222', textDecoration: 'none' }}>Popular Packages</a> */}
             </li>
             <li style={{ marginBottom: 0 }}>Best Travel Agency in India</li>
           </ul>

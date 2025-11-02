@@ -164,10 +164,10 @@ const MergedFooter = () => {
             <img src="/bni.svg" alt="BNI" style={{ width: 50, marginRight: 8 }} />
             <img src="/iso.svg" alt="ISO" style={{ width: 50 }} />
           </div>
-          <div style={{ fontWeight: 600, marginBottom: 8 }}>Follow Us</div>
+          {/* <div style={{ fontWeight: 600, marginBottom: 8 }}>Follow Us</div>
           <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
-            <span> {/* Social icons can be added here */} </span>
-          </div>
+            <span> </span>
+          </div> */}
           <div style={{ marginBottom: 8 }}>
             {/* <a href="#" style={{ color: "#3b5fc1", fontWeight: 500 }}>North East Cab</a> | <a href="#" style={{ color: "#3b5fc1", fontWeight: 500 }}>Sikkim Darjeeling Tourism</a> */}
           </div>
@@ -196,7 +196,7 @@ const MergedFooter = () => {
             <li style={{ marginBottom: 18 }}><a href="/#/privacy-policy" style={{ color: '#222', textDecoration: 'none' }}>Privacy Policy</a></li>
             <li style={{ marginBottom: 18 }}><a href="/#/faq" style={{ color: '#222', textDecoration: 'none' }}>FAQ</a></li>
             <li style={{ fontWeight: 600, marginBottom: 18 }}>
-              <a href="/#/tour-packages" style={{ color: '#222', textDecoration: 'none' }}>Popular Packages</a>
+              {/* <a href="/#/tour-packages" style={{ color: '#222', textDecoration: 'none' }}>Popular Packages</a> */}
             </li>
             <li style={{ marginBottom: 0 }}>Best Travel Agency in India</li>
           </ul>

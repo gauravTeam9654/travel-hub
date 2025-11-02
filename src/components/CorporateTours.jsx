@@ -62,7 +62,7 @@ const CorporateTours = () => {
       <section className="corp-cta" aria-label="Call to action">
         <div className="container">
           <h2>Book your company tour now – where work and wonder come together.</h2>
-          <a className="corp-cta-btn" href="/b2b-enquiry">Contact us now »</a>
+          {/* <a className="corp-cta-btn" href="/b2b-enquiry">Contact us now »</a> */}
         </div>
       </section>
 
