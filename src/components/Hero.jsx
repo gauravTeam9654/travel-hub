@@ -3,30 +3,32 @@ import { db } from "../../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../Hero.css";
 
 const Hero = () => {
-  const [carouselImages, setCarouselImages] = useState([]);
+  const [carouselItems, setCarouselItems] = useState([]);
 
   useEffect(() => {
-    const fetchImages = async () => {
+    const fetchItems = async () => {
       try {
-        const snapshot = await getDocs(collection(db, "dashboard_img"));
-        const images = snapshot.docs.map((doc) => ({
+        const snapshot = await getDocs(collection(db, "dashboard_files"));
+        const items = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setCarouselImages(images);
-        console.log("Fetched images:", images);
+
+        setCarouselItems(items);
+        console.log("Fetched hero files:", items);
       } catch (error) {
-        console.error("Error fetching carousel images:", error);
+        console.error("Error fetching carousel data:", error);
       }
     };
 
-    fetchImages();
+    fetchItems();
   }, []);
 
   return (
@@ -40,21 +42,20 @@ const Hero = () => {
         overflow: "hidden",
       }}
     >
-      {carouselImages.length > 0 ? (
+      {carouselItems.length > 0 ? (
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
           slidesPerView={1}
           loop={true}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
           navigation
           pagination={{ clickable: true }}
           style={{
             width: "100%",
             height: "100%",
-            
           }}
         >
-          {carouselImages.map((item) => (
+          {carouselItems.map((item) => (
             <SwiperSlide key={item.id}>
               <div
                 style={{
@@ -63,29 +64,55 @@ const Hero = () => {
                   height: "100%",
                 }}
               >
-                <img
-                  src={item.imageBase64 || item.imageUrl}
-                  alt={item.name || "Destination"}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    filter: "brightness(0.7)",
-                  }}
-                />
+                {/* IMAGE DISPLAY */}
+                {item.type === "image" && (
+                  <img
+                    src={item.url}
+                    alt={item.name}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      filter: "brightness(0.7)",
+                    }}
+                  />
+                )}
+
+                {/* VIDEO DISPLAY */}
+                {item.type === "video" && (
+                  <video
+                    src={item.url}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      filter: "brightness(0.7)",
+                      background: "#000",
+                    }}
+                  />
+                )}
+
+                {/* TEXT OVERLAY */}
                 <div
                   style={{
                     position: "absolute",
                     bottom: "15%",
                     left: "50%",
                     transform: "translateX(-50%)",
-                    background: "rgba(0,0,0,0.5)",
-                    color: "#fff",
-                    padding: "10px 20px",
-                    borderRadius: "10px",
-                    fontSize: "1.4rem",
-                    fontWeight: "bold",
+                    width: "70%",
                     textAlign: "center",
+                    color: "#fff",
+                    fontSize: "5rem",
+                    fontWeight: "bold",
+                    textShadow: `
+                      0 0 10px rgba(0, 0, 0, 0.9),
+                      0 0 35px rgba(255, 255, 255, 0.7),
+                      0 0 45px rgba(255, 255, 255, 0.6)
+                    `,
                   }}
                 >
                   {item.name}
@@ -103,7 +130,7 @@ const Hero = () => {
             marginTop: "40vh",
           }}
         >
-          Loading images...
+          Loading banner...
         </p>
       )}
     </section>

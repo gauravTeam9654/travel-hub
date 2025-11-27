@@ -1,32 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../../firebaseConfig";
-import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
+import { db, storage } from "../../firebaseConfig";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 
-const DashboardImageManager = () => {
+const DashboardFileManager = () => {
   const [name, setName] = useState("");
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
-  const [images, setImages] = useState([]);
-  const [loadingImages, setLoadingImages] = useState(true);
+  const [files, setFiles] = useState([]);
+  const [loadingFiles, setLoadingFiles] = useState(true);
 
-  const fetchImages = async () => {
-    setLoadingImages(true);
+  const fetchFiles = async () => {
+    setLoadingFiles(true);
     try {
-      const snapshot = await getDocs(collection(db, "dashboard_img"));
+      const snapshot = await getDocs(collection(db, "dashboard_files"));
       const data = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      setImages(data);
+      setFiles(data);
     } catch (error) {
-      console.error("Error fetching images:", error);
+      console.error("Error fetching files:", error);
     } finally {
-      setLoadingImages(false);
+      setLoadingFiles(false);
     }
   };
 
   useEffect(() => {
-    fetchImages();
+    fetchFiles();
   }, []);
 
   const handleFileChange = (e) => {
@@ -35,53 +48,61 @@ const DashboardImageManager = () => {
 
   const handleUpload = async () => {
     if (!name || !file) {
-      alert("Please provide both name and image file.");
+      alert("Please provide a name and file.");
       return;
     }
 
     setUploading(true);
     try {
-      // Convert image file to Base64 string
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onloadend = async () => {
-        const base64String = reader.result;
+      const fileType = file.type.startsWith("image") ? "image" : "video";
+      const storagePath = `${fileType}s/${Date.now()}-${file.name}`;
 
-        await addDoc(collection(db, "dashboard_img"), {
-          name,
-          imageBase64: base64String,
-          createdAt: new Date(),
-        });
+      const fileRef = ref(storage, storagePath);
 
-        setName("");
-        setFile(null);
-        fetchImages();
-        setUploading(false);
-      };
+      await uploadBytes(fileRef, file);
+      const downloadURL = await getDownloadURL(fileRef);
+
+      await addDoc(collection(db, "dashboard_files"), {
+        name,
+        url: downloadURL,
+        type: fileType,
+        storagePath,
+        createdAt: new Date(),
+      });
+
+      setName("");
+      setFile(null);
+      fetchFiles();
     } catch (error) {
       console.error("Upload failed:", error);
-      alert("Failed to upload image.");
+      alert("Failed to upload file.");
+    } finally {
       setUploading(false);
     }
   };
 
-  const handleDelete = async (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this image?");
+  const handleDelete = async (id, storagePath) => {
+    const confirmDelete = window.confirm("Delete this file?");
     if (!confirmDelete) return;
 
     try {
-      await deleteDoc(doc(db, "dashboard_img", id));
-      fetchImages();
+      // Delete from Storage bucket
+      await deleteObject(ref(storage, storagePath));
+
+      // Delete Firestore entry
+      await deleteDoc(doc(db, "dashboard_files", id));
+
+      fetchFiles();
     } catch (error) {
       console.error("Delete failed:", error);
-      alert("Failed to delete image.");
+      alert("Failed to delete file.");
     }
   };
 
   const handleUpdateName = async (id, newName) => {
     try {
-      await updateDoc(doc(db, "dashboard_img", id), { name: newName });
-      fetchImages();
+      await updateDoc(doc(db, "dashboard_files", id), { name: newName });
+      fetchFiles();
     } catch (error) {
       console.error("Update failed:", error);
       alert("Failed to update name.");
@@ -89,58 +110,82 @@ const DashboardImageManager = () => {
   };
 
   return (
-    <div style={{ maxWidth: 600, margin: "20px auto", padding: 20, border: "1px solid #ccc", borderRadius: 8 }}>
-      <h3>Upload Dashboard Image</h3>
+    <div style={{ maxWidth: 700, margin: "20px auto", padding: 20 }}>
+      <h3>Upload Image/Video</h3>
       <input
         type="text"
-        placeholder="Enter image name"
+        placeholder="Enter file name"
         value={name}
         onChange={(e) => setName(e.target.value)}
         style={{ width: "100%", padding: 8, marginBottom: 10 }}
       />
-      <input type="file" accept="image/*" onChange={handleFileChange} style={{ marginBottom: 10 }} />
+
+      <input
+        type="file"
+        accept="image/*,video/*"
+        onChange={handleFileChange}
+        style={{ marginBottom: 10 }}
+      />
+
       <button
         onClick={handleUpload}
         disabled={uploading}
-        style={{ padding: "8px 16px", marginBottom: 20, cursor: uploading ? "not-allowed" : "pointer" }}
+        style={{ padding: "10px 16px", marginBottom: 20 }}
       >
         {uploading ? "Uploading..." : "Upload"}
       </button>
 
-      <h3>Uploaded Images</h3>
-      {loadingImages ? (
+      <h3>Uploaded Files</h3>
+
+      {loadingFiles ? (
         <p>Loading...</p>
-      ) : images.length === 0 ? (
-        <p>No images uploaded yet.</p>
+      ) : files.length === 0 ? (
+        <p>No files uploaded yet.</p>
       ) : (
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead>
             <tr>
-              <th style={{ border: "1px solid #ccc", padding: 8 }}>Image</th>
+              <th style={{ border: "1px solid #ccc", padding: 8 }}>Preview</th>
               <th style={{ border: "1px solid #ccc", padding: 8 }}>Name</th>
               <th style={{ border: "1px solid #ccc", padding: 8 }}>Actions</th>
             </tr>
           </thead>
+
           <tbody>
-            {images.map((img) => (
-              <tr key={img.id}>
+            {files.map((f) => (
+              <tr key={f.id}>
                 <td style={{ border: "1px solid #ccc", padding: 8 }}>
-                  <img
-                    src={img.imageBase64}
-                    alt={img.name}
-                    style={{ width: 100, height: 60, objectFit: "cover" }}
-                  />
+                  {f.type === "image" ? (
+                    <img
+                      src={f.url}
+                      alt={f.name}
+                      style={{ width: 100, height: 60, objectFit: "cover" }}
+                    />
+                  ) : (
+                    <video
+                      src={f.url}
+                      width="120"
+                      height="70"
+                      controls
+                      style={{ background: "#000" }}
+                    />
+                  )}
                 </td>
+
                 <td style={{ border: "1px solid #ccc", padding: 8 }}>
                   <input
                     type="text"
-                    value={img.name}
-                    onChange={(e) => handleUpdateName(img.id, e.target.value)}
+                    value={f.name}
+                    onChange={(e) => handleUpdateName(f.id, e.target.value)}
                     style={{ width: "100%" }}
                   />
                 </td>
+
                 <td style={{ border: "1px solid #ccc", padding: 8 }}>
-                  <button onClick={() => handleDelete(img.id)} style={{ color: "red", cursor: "pointer" }}>
+                  <button
+                    onClick={() => handleDelete(f.id, f.storagePath)}
+                    style={{ color: "red", cursor: "pointer" }}
+                  >
                     Delete
                   </button>
                 </td>
@@ -153,4 +198,4 @@ const DashboardImageManager = () => {
   );
 };
 
-export default DashboardImageManager;
+export default DashboardFileManager;

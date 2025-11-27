@@ -43,7 +43,6 @@ const AddTripPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // ✅ Upload image to Firebase Storage
 const handleImageUpload = async (e) => {
   const file = e.target.files[0];
   if (!file) return;
@@ -51,21 +50,24 @@ const handleImageUpload = async (e) => {
   setUploading(true);
 
   try {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const base64String = reader.result;
-      // Store Base64 string directly in formData (Firestore will get it when you save the trip)
-      setFormData({ ...formData, image: base64String });
-      alert("Image loaded successfully (will be saved in Firestore)!");
-    };
-    reader.readAsDataURL(file);
+    const fileRef = ref(storage, `destinations/${Date.now()}-${file.name}`);
+
+    // Upload file
+    await uploadBytes(fileRef, file);
+
+    // Get download URL
+    const downloadURL = await getDownloadURL(fileRef);
+
+    setFormData({ ...formData, image: downloadURL });
+    alert("Image uploaded successfully!");
   } catch (err) {
-    console.error("Image processing error:", err);
-    alert("Failed to process image");
-  } finally {
-    setUploading(false);
+    console.error("Upload Error:", err);
+    alert("Image upload failed");
   }
+
+  setUploading(false);
 };
+
 
 
   // ✅ Itinerary Handlers

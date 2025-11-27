@@ -107,6 +107,11 @@
 	.dests-list-card .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
 }
 
+.dests-list-card .list {
+  display: grid;
+  grid-template-columns: 1fr !important; /* Force ONE column always */
+  gap: 16px;
+}
 .horizontal-scroll{display:flex;gap:16px;overflow:auto;padding-bottom:4px;scroll-snap-type:x mandatory}
 .horizontal-scroll>.list-item{min-width:320px;scroll-snap-align:start}
 
