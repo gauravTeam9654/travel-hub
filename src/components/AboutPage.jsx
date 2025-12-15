@@ -64,7 +64,7 @@ const AboutPage = () => {
   <Testimonials />
 
       {/* Why Choose */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "16px 24px" }}>
+      <div style={{  margin: "0 auto", padding: "16px 0px" }}>
         <WhyChoose />
       </div>
 

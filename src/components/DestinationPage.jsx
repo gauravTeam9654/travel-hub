@@ -20,6 +20,8 @@ const DestinationPage = () => {
   const [loading, setLoading] = useState(true);
   const [dest, setDest] = useState(null);
 
+  const [selectedExtraPackage, setSelectedExtraPackage] = useState(null);
+
   // Refs for smooth scrolling
   const packagesRef = useRef(null);
   const aboutRef = useRef(null);
@@ -52,6 +54,7 @@ const DestinationPage = () => {
         if (!querySnapshot.empty) {
           const docData = querySnapshot.docs[0].data();
           setDest(docData);
+          console.log("Fetched destination:", docData);
         } else {
           setDest(null);
         }
@@ -111,6 +114,19 @@ const DestinationPage = () => {
     setActiveTab(tabMap[tabFromQuery] ?? 0);
   }, [location.search]);
 
+  useEffect(() => {
+  if (selectedExtraPackage) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+
+  return () => {
+    document.body.style.overflow = "auto";
+  };
+}, [selectedExtraPackage]);
+
+
   if (loading) {
     return (
       <>
@@ -136,131 +152,37 @@ const DestinationPage = () => {
       <Navbar fixed />
 
       {/* 🌄 Hero Section */}
-      <div className="destination-main-bg">
-        <div
-          className="destination-hero"
-          style={{
-            background: `url(${dest.heroImage || ""}) center/cover no-repeat`,
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            minHeight: 650,
-            height: "75vh",
-            width: "100%",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "rgba(0,0,0,0.32)",
-              zIndex: 1,
-            }}
-          ></div>
+     <div className="destination-page">
 
-          <div
-            className="destination-hero-text"
-            style={{
-              position: "relative",
-              zIndex: 2,
-              maxWidth: 600,
-              padding: "0 24px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <h1 style={{ color: "#fff", fontSize: 44, fontWeight: 700, marginBottom: 16 }}>
-              {dest.heading}
-            </h1>
-            <p style={{ color: "#fff", fontSize: 20 }}>{dest.description}</p>
-          </div>
-        </div>
-
-        {/* 🧭 Tabs */}
-
-{/* 🧳 Extra Packages Section */}
-{dest.extraPackages && dest.extraPackages.length > 0 && (
+  {/* HERO SECTION */}
   <section
-    id="extra-packages"
-    style={{
-      margin: "60px 0",
-      padding: "40px 32px",
-      background: "#ffffff",
-      borderRadius: "16px",
-    }}
+    className="destination-hero"
+    style={{ backgroundImage: `url(${dest.heroImage || ""})` }}
   >
-    <h2
-      style={{
-        fontSize: "2rem",
-        fontWeight: "700",
-        color: "#1a237e",
-        marginBottom: "30px",
-        textAlign: "center",
-      }}
-    >
-      Explore More Packages
-    </h2>
+    <div className="hero-overlay" />
 
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-        gap: "20px",
-      }}
-    >
+    <div className="hero-content">
+      <h1>{dest.heading}</h1>
+      <p>{dest.description}</p>
+    </div>
+  </section>
+
+  {/* EXTRA PACKAGES */}
+{dest.extraPackages?.length > 0 && (
+  <section className="section">
+    <h2 className="section-title">Explore More Packages</h2>
+
+    <div className="package-grid">
       {dest.extraPackages.map((pkg, index) => (
         <div
           key={index}
-          style={{
-            position: "relative",
-            borderRadius: "12px",
-            overflow: "hidden",
-            height: "250px",
-            cursor: "pointer",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-            transition: "transform 0.3s ease",
-          }}
-          onClick={() => {
-            // Optional: Navigate to a package details page if available
-            console.log("Clicked package:", pkg.title);
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          className="package-card"
+          onClick={() => setSelectedExtraPackage(pkg)}
+          style={{ cursor: "pointer" }}
         >
-          <img
-            src={pkg.image}
-            alt={pkg.title}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              display: "block",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2))",
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "center",
-              padding: "20px",
-            }}
-          >
-            <h3
-              style={{
-                color: "#fff",
-                fontSize: "1.4rem",
-                fontWeight: "600",
-                textAlign: "center",
-                textShadow: "0 2px 4px rgba(0,0,0,0.6)",
-              }}
-            >
-              {pkg.title}
-            </h3>
+          <img src={pkg.image} alt={pkg.title} />
+          <div className="package-overlay">
+            <h3>{pkg.title}</h3>
           </div>
         </div>
       ))}
@@ -268,59 +190,239 @@ const DestinationPage = () => {
   </section>
 )}
 
+{selectedExtraPackage && (
+  <div
+    style={{
+      position: "fixed",
+      inset: 0,
+      background: "rgba(0,0,0,0.75)",
+      zIndex: 9999,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 20,
+    }}
+    onClick={() => setSelectedExtraPackage(null)}
+  >
+    {/* Modal Box */}
+    <div
+      onClick={(e) => e.stopPropagation()}
+      style={{
+        background: "#fff",
+        width: "100%",
+        maxWidth: 1000,
+        maxHeight: "90vh",
+        overflowY: "auto",
+        borderRadius: 18,
+        boxShadow: "0 25px 60px rgba(0,0,0,0.4)",
+        position: "relative",
+      }}
+    >
+      {/* Close Button */}
+      <button
+        onClick={() => setSelectedExtraPackage(null)}
+        style={{
+          position: "absolute",
+          top: 16,
+          right: 16,
+          background: "#0f172a",
+          color: "#fff",
+          border: "none",
+          borderRadius: 10,
+          padding: "6px 14px",
+          fontSize: 14,
+          cursor: "pointer",
+        }}
+      >
+        ✕ Close
+      </button>
 
+      {/* Image */}
+      {selectedExtraPackage.image && (
+        <img
+          src={selectedExtraPackage.image}
+          alt={selectedExtraPackage.title}
+          style={{
+            width: "100%",
+            height: 380,
+            objectFit: "cover",
+            borderTopLeftRadius: 18,
+            borderTopRightRadius: 18,
+          }}
+        />
+      )}
 
+      {/* Content */}
+      <div style={{ padding: "28px 32px" }}>
+        {/* Title */}
+        <h2
+          style={{
+            fontSize: 34,
+            fontWeight: 700,
+            marginBottom: 20,
+            color: "#0f172a",
+          }}
+        >
+          {selectedExtraPackage.title}
+        </h2>
 
-        <div className="destination-tabs" ref={guideRef}>
-          {getTabsForDestination(dest.slug, dest.name).map((tab, idx) => (
-            <button
-              key={tab.label}
-              className={`destination-tab-btn${activeTab === idx ? " active" : ""}`}
-              onClick={() => handleTabChange(idx)}
+        {/* Quill Content */}
+        {selectedExtraPackage.quillContent && (
+          <div
+            className="rich-content"
+            style={{
+              fontSize: 16,
+              lineHeight: 1.7,
+              color: "#334155",
+              marginBottom: 36,
+            }}
+            dangerouslySetInnerHTML={{
+              __html: selectedExtraPackage.quillContent,
+            }}
+          />
+        )}
+
+        {/* Highlights */}
+        {selectedExtraPackage.highlights?.length > 0 && (
+          <>
+            <h3
+              style={{
+                fontSize: 24,
+                fontWeight: 600,
+                marginBottom: 18,
+                color: "#f97316",
+              }}
             >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+              Package Highlights
+            </h3>
 
-        {/* 🏞️ About Section */}
-        <section id="about" ref={aboutRef} style={{ margin: "40px 0", background: "#f7f8fa", borderRadius: 16, padding: "40px 32px" }}>
-          <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#1a237e", marginBottom: 18 }}>
-            About {dest.name}
-          </h2>
-          <p style={{ fontSize: "1.2rem", color: "#333" }}>{dest.description}</p>
-        </section>
-
-        {/* 🌆 Highlights */}
-        <section id="highlights" ref={placesRef} style={{ margin: "40px 0", background: "#f7f8fa", borderRadius: 16, padding: "40px 32px" }}>
-          <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#1a237e", marginBottom: 18 }}>
-            Best Places to Visit in {dest.name}
-          </h2>
-          {(!dest.highlights || dest.highlights.length === 0) ? (
-            <p>No highlights available.</p>
-          ) : (
-            dest.highlights.map((place, idx) => (
-              <div
-                key={idx}
-                style={{
-                  marginBottom: 24,
-                  background: "#fff",
-                  borderRadius: 12,
-                  padding: 24,
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
-                }}
-              >
-                <h3 style={{ fontSize: "1.3rem", fontWeight: 600, marginBottom: 8 }}>
-                  {place.title}
-                </h3>
-                <p>{place.description}</p>
-              </div>
-            ))
-          )}
-        </section>
-
-        <Footer />
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                gap: 18,
+              }}
+            >
+              {selectedExtraPackage.highlights.map((h, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    background: "#f8fafc",
+                    padding: 18,
+                    borderRadius: 14,
+                    border: "1px solid #e2e8f0",
+                    transition: "all 0.2s ease",
+                  }}
+                >
+                  <h4
+                    style={{
+                      fontSize: 16,
+                      fontWeight: 600,
+                      marginBottom: 8,
+                      color: "#0f172a",
+                    }}
+                  >
+                    {h.title}
+                  </h4>
+                  <p
+                    style={{
+                      fontSize: 14,
+                      color: "#475569",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {h.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
+    </div>
+  </div>
+)}
+
+
+
+  {/* ABOUT */}
+  <section className="section light">
+    <h2 className="section-title">About {dest.name}</h2>
+    <p className="section-desc">{dest.description}</p>
+
+    <div
+      className="rich-content"
+      dangerouslySetInnerHTML={{ __html: dest.descriptionRich }}
+    />
+  </section>
+
+  {/* HIGHLIGHTS */}
+  <section className="section light">
+    <h2 className="section-title">{dest.name} Highlights</h2>
+
+    {dest.highlights?.length ? (
+      <div className="highlight-grid">
+        {dest.highlights.map((place, idx) => (
+          <div key={idx} className="highlight-card">
+            <h3>{place.title}</h3>
+            <p>{place.description}</p>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <p>No highlights available.</p>
+    )}
+  </section>
+
+  {/* 🖼️ DESTINATION GALLERY */}
+{dest.galleryPhotos?.length > 0 && (
+  <section className="section light">
+    <h2 className="section-title">{dest.name} Gallery</h2>
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+        gap: 18,
+        marginTop: 20,
+      }}
+    >
+      {dest.galleryPhotos.map((img, index) => (
+        <div
+          key={index}
+          style={{
+            borderRadius: 16,
+            overflow: "hidden",
+            boxShadow: "0 10px 25px rgba(0,0,0,0.12)",
+            cursor: "pointer",
+          }}
+        >
+          <img
+            src={img}
+            alt={`${dest.name} gallery ${index + 1}`}
+            style={{
+              width: "100%",
+              height: 220,
+              objectFit: "cover",
+              transition: "transform 0.4s ease",
+            }}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.transform = "scale(1.08)")
+            }
+            onMouseOut={(e) =>
+              (e.currentTarget.style.transform = "scale(1)")
+            }
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+
+  <Footer />
+</div>
+
     </>
   );
 };

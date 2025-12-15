@@ -4,10 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* space between logo and nav items */
-  padding: 0 40px;
+  /* padding: 0 40px; */
   position: relative;
   background-color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); */
   z-index: 1000;
 }
 

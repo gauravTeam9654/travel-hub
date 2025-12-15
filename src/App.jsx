@@ -25,6 +25,8 @@ import PopularPackagesPage from "./components/PopularPackagesPage";
 import AdminPanel from "./components/AdminPanel";
 import CorporateTours from "./components/CorporateTours";
 import WhatsAppChat from "./components/WhatsAppChat";
+import GalleryLocations from "./components/GalleryLocation";
+import GalleryDetails from "./components/GalleryDetails";
 
 const App = () => {
   return (
@@ -39,6 +41,7 @@ const App = () => {
               <TopDestinations />
               <WhyChoose />
               <PackageSection title="Popular International Tour Packages" packages={mergePackages(bhutanBase)} />
+              <GalleryLocations/>
               <CaptivatingDestinations />
               <Partners />
               <MergedFooter />
@@ -47,6 +50,7 @@ const App = () => {
         />
 
   <Route path="/destination" element={<Destinations />} />
+  <Route path="/mygallery/:location" element={<GalleryDetails/>} />
   <Route path="/destination/:slug" element={<DestinationPage />} />
   <Route path="/package/:slug" element={<PackagePage />} />
   <Route path="/b2b-enquiry" element={<B2BPage />} />

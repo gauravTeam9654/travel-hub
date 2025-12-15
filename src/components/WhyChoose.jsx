@@ -1,128 +1,155 @@
 import React from "react";
+import {
+  Briefcase,
+  Compass,
+  Headphones,
+  HeartHandshake,
+  ShieldCheck,
+  Smile,
+} from "lucide-react";
 
-const features = [
+const reasons = [
   {
-    icon: "/ultimate-flexibility.png",
-    title: "Ultimate Flexibility",
-    desc: "Stay in control with easy cancellations and flexible payments for every journey.",
+    icon: <Briefcase size={36} />,
+    title: "12+ Years of Expertise",
+    desc: "With over a decade of experience, we understand travel deeply and anticipate your needs before you even ask.",
   },
   {
-    icon: "/Memorable-experiences.png",
-    title: "Memorable Experiences",
-    desc: "Book unique tours and experiences curated to make every trip unforgettable.",
+    icon: <Compass size={36} />,
+    title: "Personalized Journeys",
+    desc: "Relaxation, culture, adventure or luxury — we listen first and craft trips that perfectly match your vision.",
   },
   {
-    icon: "/quality-core.png",
-    title: "Quality at Our Core",
-    desc: "We partner with trusted providers to ensure exceptional quality and value.",
+    icon: <Headphones size={36} />,
+    title: "End-to-End Assistance",
+    desc: "From planning to your safe return home, every booking and every detail is handled with care.",
   },
-  // {
-  //   icon: "/Award-winning support.png",
-  //   title: "Award-Winning Support",
-  //   desc: "Travel worry-free — our team is here 24/7 to assist you anytime, anywhere.",
-  // },
+  {
+    icon: <HeartHandshake size={36} />,
+    title: "A Lifetime of Travel Together",
+    desc: "Your first journey with us is just the beginning. We build relationships that last across many adventures.",
+  },
+  {
+    icon: <ShieldCheck size={36} />,
+    title: "Peace of Mind",
+    desc: "Travel should feel joyful, not stressful. We manage the logistics so you can enjoy every moment.",
+  },
+  {
+    icon: <Smile size={36} />,
+    title: "Trusted by Travelers",
+    desc: "Thousands of happy travelers choose us for reliability, transparency, and unforgettable experiences.",
+  },
 ];
 
 const WhyChoose = () => {
   return (
     <section
       style={{
-        padding: "100px 10%",
-        background: "linear-gradient(135deg, #f9fafb 0%, #ffffff 100%)",
-        fontFamily: "'Poppins', sans-serif",
-        textAlign: "center",
-        color: "#222",
+        padding: "100px 6%",
+        background:
+          "linear-gradient(135deg, #ff7a18 0%, #ff9f1c 100%)",
+        fontFamily: "'Inter', sans-serif",
       }}
     >
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        <h2
-          style={{
-            fontSize: "2.6rem",
-            fontWeight: 700,
-            marginBottom: "15px",
-            color: "#111",
-          }}
-        >
-          Why Choose <span style={{ color: "#007bff" }}>TravelHub</span>
-        </h2>
+      <div style={{ maxWidth: 1200, margin: "0 auto"  }}>
+        
+        {/* Heading */}
+        <div style={{ textAlign: "center", marginBottom: 70 }}>
+          <p
+            style={{
+              color: "#fff7ed",
+              letterSpacing: "0.12em",
+              fontSize: "0.9rem",
+              marginBottom: 12,
+            }}
+          >
+            TRAVEL HUB
+          </p>
+    
+          <h2
+            style={{
+              fontSize: "clamp(2.2rem, 4vw, 3rem)",
+              fontWeight: 700,
+              color: "#ffffff",
+            }}
+          >
+            Why Choose Us
 
-        <p
-          style={{
-            color: "#666",
-            fontSize: "1.1rem",
-            maxWidth: "600px",
-            margin: "0 auto 60px",
-          }}
-        >
-          We make travel planning effortless — from inspiration to destination.
-        </p>
+                {/* <span> */}
+         {/* <span style={{ color: "#ffffffff" }}> Travel Hub</span> */}
+      {/* </h2> */}
+            {/* <img 
+            src="/partners/logo.png"
+            alt="decorative stars"
+            style={{ width: 48, height: 12, marginBottom: 16 , backgroundColor : "white" , borderRadius : 6}}
+          /> */}
+          </h2>
+        </div>
 
+        {/* Grid */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: "30px",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 36,
           }}
         >
-          {features.map((f) => (
+          {reasons.map((item, index) => (
             <div
-              key={f.title}
+              key={index}
               style={{
-                background: "rgba(255, 255, 255, 0.9)",
-                borderRadius: "20px",
-                padding: "40px 30px",
-                boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
+                background: "rgba(255,255,255,0.15)",
+                backdropFilter: "blur(12px)",
+                borderRadius: 22,
+                padding: "40px 32px",
+                color: "#fff",
                 transition: "all 0.35s ease",
-                border: "1px solid rgba(0, 0, 0, 0.05)",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-10px)";
-                e.currentTarget.style.boxShadow =
-                  "0 14px 45px rgba(0, 0, 0, 0.12)";
+                e.currentTarget.style.background =
+                  "rgba(255,255,255,0.22)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  "0 8px 30px rgba(0, 0, 0, 0.08)";
+                e.currentTarget.style.background =
+                  "rgba(255,255,255,0.15)";
               }}
             >
-              <div style={{ marginBottom: "25px" }}>
-                <img
-                  src={f.icon}
-                  alt={f.title}
-                  style={{
-                    width: "64px",
-                    height: "64px",
-                    objectFit: "contain",
-                    transition: "transform 0.3s ease",
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.transform = "scale(1.1)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.transform = "scale(1)")
-                  }
-                />
-              </div>
-              <h3
+              <div
                 style={{
-                  fontSize: "1.3rem",
-                  fontWeight: 600,
-                  marginBottom: "12px",
-                  color: "#222",
+                  width: 64,
+                  height: 64,
+                  borderRadius: 16,
+                  background: "rgba(255,255,255,0.25)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: 24,
                 }}
               >
-                {f.title}
+                {item.icon}
+              </div>
+
+              <h3
+                style={{
+                  fontSize: "1.35rem",
+                  fontWeight: 600,
+                  marginBottom: 14,
+                }}
+              >
+                {item.title}
               </h3>
+
               <p
                 style={{
-                  color: "#666",
-                  fontSize: "0.98rem",
-                  lineHeight: "1.6",
+                  fontSize: "1.02rem",
+                  lineHeight: 1.7,
+                  color: "#fffaf0",
                   margin: 0,
                 }}
               >
-                {f.desc}
+                {item.desc}
               </p>
             </div>
           ))}

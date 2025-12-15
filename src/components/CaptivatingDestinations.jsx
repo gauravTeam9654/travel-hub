@@ -193,167 +193,170 @@ const CaptivatingDestinations = () => {
     <>
       <FAQSection />
 
-      <section
+<section
+  style={{
+    background: "linear-gradient(135deg, #fff3e6 0%, #ffe0c3 100%)",
+    color: "#2d2d2d",
+    padding: "100px 20px",
+    fontFamily: "Poppins, sans-serif",
+  }}
+>
+  <div
+    style={{
+      maxWidth: 1200,
+      margin: "0 auto",
+      display: "flex",
+      flexWrap: "wrap",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: 60,
+    }}
+  >
+    {/* LEFT CONTENT */}
+    <div style={{ flex: 1, minWidth: 320, maxWidth: 520 }}>
+      <h2
         style={{
-          background: "linear-gradient(135deg, #4f46e5 0%, #38bdf8 100%)",
-          color: "#fff",
-          padding: "100px 20px",
-          transition: "all 0.5s ease",
+          fontSize: 42,
+          fontWeight: 700,
+          marginBottom: 22,
+          lineHeight: 1.25,
+          color: "#2b2b2b",
         }}
       >
-        <div
-          style={{
-            maxWidth: 1200,
-            margin: "0 auto",
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 60,
-          }}
-        >
-          {/* Left side */}
-          <div style={{ flex: 1, minWidth: 320, maxWidth: 500 }}>
-            <h2
-              style={{
-                fontSize: 40,
-                fontWeight: 800,
-                marginBottom: 20,
-                lineHeight: 1.3,
-                fontFamily: "Poppins, sans-serif",
-              }}
-            >
-              Discover the World with{" "}
-              <span style={{ color: "#facc15" }}>TravelVista</span>
-            </h2>
-            <p
-              style={{
-                fontSize: 18,
-                lineHeight: 1.8,
-                marginBottom: 30,
-                fontFamily: "Inter, sans-serif",
-                color: "rgba(255,255,255,0.9)",
-              }}
-            >
-              From breathtaking escapes to seamless travel planning, we make
-              your journey as beautiful as your destination.
-            </p>
+        Discover the World with{" "}
+        <span style={{ color: "#ff7a18" }}>TravelHub</span>
+      </h2>
 
+      <p
+        style={{
+          fontSize: 18,
+          lineHeight: 1.8,
+          marginBottom: 36,
+          color: "#555",
+          fontFamily: "Inter, sans-serif",
+        }}
+      >
+        From breathtaking escapes to seamless travel planning, we curate journeys
+        that stay with you forever.
+      </p>
+
+      {/* STATS */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+          gap: 22,
+        }}
+      >
+        {[
+          { icon: "🌍", label: "20+ Destinations" },
+          { icon: "🗺️", label: "7,000+ Tours" },
+          { icon: "😊", label: "25,000+ Travelers" },
+          { icon: "🤝", label: "150+ Partners" },
+        ].map((item, i) => (
+          <div
+            key={i}
+            style={{
+              background: "#ffffff",
+              borderRadius: 18,
+              padding: "22px",
+              textAlign: "center",
+              boxShadow: "0 10px 28px rgba(0,0,0,0.08)",
+              transition: "box-shadow 0.3s ease",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.boxShadow =
+                "0 14px 34px rgba(255,122,24,0.25)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.boxShadow =
+                "0 10px 28px rgba(0,0,0,0.08)")
+            }
+          >
+            <div style={{ fontSize: 34, marginBottom: 10 }}>
+              {item.icon}
+            </div>
             <div
               style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-                gap: 22,
+                fontSize: 15,
+                fontWeight: 600,
+                color: "#333",
               }}
             >
-              {[
-                { icon: "🌍", label: "20+ Destinations" },
-                { icon: "🗺️", label: "7,000+ Tours" },
-                { icon: "😊", label: "25,000+ Happy Travelers" },
-                { icon: "🤝", label: "150+ Global Partners" },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  style={{
-                    background: "rgba(255,255,255,0.15)",
-                    borderRadius: 18,
-                    padding: "24px",
-                    textAlign: "center",
-                    boxShadow: "0 6px 14px rgba(0,0,0,0.1)",
-                    transform: "scale(1)",
-                    transition: "all 0.4s ease",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.05)";
-                    e.currentTarget.style.background = "rgba(255,255,255,0.25)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                    e.currentTarget.style.background = "rgba(255,255,255,0.15)";
-                  }}
-                >
-                  <div style={{ fontSize: 34, marginBottom: 8 }}>{item.icon}</div>
-                  <div
-                    style={{
-                      fontSize: 16,
-                      fontWeight: 600,
-                      color: "#fff",
-                      letterSpacing: "0.3px",
-                    }}
-                  >
-                    {item.label}
-                  </div>
-                </div>
-              ))}
+              {item.label}
             </div>
           </div>
+        ))}
+      </div>
+    </div>
 
-          {/* Testimonials */}
-          <div style={{ flex: 1, minWidth: 320, maxWidth: 580 }}>
-            <Swiper
-              modules={[Autoplay, Pagination, A11y]}
-              spaceBetween={30}
-              slidesPerView={1}
-              loop={true}
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
+    {/* TESTIMONIALS */}
+    <div style={{ flex: 1, minWidth: 320, maxWidth: 560 }}>
+      <Swiper
+        modules={[Autoplay, Pagination, A11y]}
+        spaceBetween={30}
+        slidesPerView={1}
+        loop
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 3500, disableOnInteraction: false }}
+      >
+        {testimonials.map((t, idx) => (
+          <SwiperSlide key={idx}>
+            <div
+              style={{
+                background: "#ffffff",
+                borderRadius: 22,
+                padding: "46px 38px",
+                minHeight: 260,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                boxShadow: "0 14px 36px rgba(0,0,0,0.1)",
+              }}
             >
-              {testimonials.map((t, idx) => (
-                <SwiperSlide key={idx}>
-                  <div
-                    style={{
-                      // background: "rgba(255,255,255,0.12)",
-                      // borderRadius: 22,
-                      padding: "48px 36px",
-                      minHeight: 260,
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                      // boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
-                      backdropFilter: "blur(12px)",
-                      transition: "all 0.4s ease",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontStyle: "italic",
-                        color: "#f0f9ff",
-                        fontSize: 18,
-                        lineHeight: 1.8,
-                        marginBottom: 24,
-                        textAlign: "center",
-                        transition: "opacity 0.4s ease",
-                      }}
-                    >
-                      “{t.text}”
-                    </p>
-                    <div
-                      style={{
-                        fontWeight: 700,
-                        color: "#fde68a",
-                        textAlign: "center",
-                        marginBottom: 6,
-                      }}
-                    >
-                      {t.name}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: 15,
-                        color: "#bae6fd",
-                        textAlign: "center",
-                      }}
-                    >
-                      {t.location}
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
-      </section>
+              <p
+                style={{
+                  fontStyle: "italic",
+                  color: "#555",
+                  fontSize: 18,
+                  lineHeight: 1.8,
+                  marginBottom: 26,
+                  textAlign: "center",
+                }}
+              >
+                “{t.text}”
+              </p>
+
+              <div
+                style={{
+                  fontWeight: 600,
+                  color: "#ff7a18",
+                  textAlign: "center",
+                  marginBottom: 6,
+                }}
+              >
+                {t.name}
+              </div>
+
+              <div
+                style={{
+                  fontSize: 15,
+                  color: "#777",
+                  textAlign: "center",
+                }}
+              >
+                {t.location}
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  </div>
+</section>
+
+
+
     </>
   );
 };

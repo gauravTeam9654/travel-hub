@@ -57,7 +57,7 @@ const Navbar = ({ fixed = false }) => {
           <span className="hamburger-line" style={{ background: '#222' }}></span>
         </button>
         <div className="mobile-logo" style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
-          <img src="/logo-final.png" alt="TravelHub" style={{ height: '70px', width: 'auto', display: 'block' }} />
+          <img src="/partners/logo.png" alt="TravelHub" style={{ height: '70px', width: 'auto', display: 'block' }} />
         </div>
       </div>
 
@@ -147,8 +147,9 @@ const Navbar = ({ fixed = false }) => {
         <div className="mobile-menu-overlay" onClick={toggleMobileMenu}>
           <div className="mobile-menu" onClick={(e) => e.stopPropagation()}>
             <div className="mobile-menu-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginBottom: 30, paddingBottom: 20, borderBottom: '1px solid #eee' }}>
-              <img src="/logo-final.png" alt="TravelHub" style={{ height: '100px', width: 'auto', margin: '0 auto 10px auto', display: 'block' }} />
-              <button className="mobile-menu-close" style={{ alignSelf: 'flex-end', marginTop: -60, marginRight: 0 }} onClick={toggleMobileMenu}>×</button>
+              {/* <img src="" alt="TravelHub" style={{ height: '100px', width: 'auto', margin: '0 auto 10px auto', display: 'block' }} /> */}
+              {/* <div>TravelHub</div> */}
+              <button className="mobile-menu-close" style={{ alignSelf: 'flex-end', marginTop: -60, marginRight: 0 , }} onClick={toggleMobileMenu}>×</button>
             </div>
 
             <ul className="mobile-nav-links">
@@ -229,7 +230,7 @@ const Navbar = ({ fixed = false }) => {
               </li> */}
 
               <li><Link to="/destination" onClick={toggleMobileMenu}>Destination</Link></li>
-              <li><Link to="/backpacking" onClick={toggleMobileMenu}>Backpacking Tour</Link></li>
+              {/* <li><Link to="/backpacking" onClick={toggleMobileMenu}>Backpacking Tour</Link></li> */}
               <li><Link to="/about" onClick={toggleMobileMenu}>About Us</Link></li>
             </ul>
           </div>
