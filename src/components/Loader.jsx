@@ -1,4 +1,4 @@
-import "./Loader.css";
+import "./loader.css";
 
 const Loader = ({ open }) => {
   if (!open) return null;
