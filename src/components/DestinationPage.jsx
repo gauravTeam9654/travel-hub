@@ -151,280 +151,239 @@ const DestinationPage = () => {
     <>
       <Navbar fixed />
 
-      {/* 🌄 Hero Section */}
-     <div className="destination-page">
-
-  {/* HERO SECTION */}
-  <section
-    className="destination-hero"
-    style={{ backgroundImage: `url(${dest.heroImage || ""})` }}
-  >
-    <div className="hero-overlay" />
-
-    <div className="hero-content">
-      <h1>{dest.heading}</h1>
-      <p>{dest.description}</p>
-    </div>
-  </section>
-
-  {/* EXTRA PACKAGES */}
-{dest.extraPackages?.length > 0 && (
-  <section className="section">
-    <h2 className="section-title">Explore More Packages</h2>
-
-    <div className="package-grid">
-      {dest.extraPackages.map((pkg, index) => (
-        <div
-          key={index}
-          className="package-card"
-          onClick={() => setSelectedExtraPackage(pkg)}
-          style={{ cursor: "pointer" }}
+      <div className="destination-page">
+        {/* HERO SECTION */}
+        <section
+          className="destination-hero"
+          style={{ backgroundImage: `url(${dest.heroImage || ""})` }}
         >
-          <img src={pkg.image} alt={pkg.title} />
-          <div className="package-overlay">
-            <h3>{pkg.title}</h3>
+          <div className="hero-overlay" />
+          <div className="hero-content">
+            <h1>{dest.heading}</h1>
+            <p>{dest.description}</p>
           </div>
-        </div>
-      ))}
-    </div>
-  </section>
-)}
+        </section>
 
-{selectedExtraPackage && (
-  <div
-    style={{
-      position: "fixed",
-      inset: 0,
-      background: "rgba(0,0,0,0.75)",
-      zIndex: 9999,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: 20,
-    }}
-    onClick={() => setSelectedExtraPackage(null)}
-  >
-    {/* Modal Box */}
-    <div
-      onClick={(e) => e.stopPropagation()}
-      style={{
-        background: "#fff",
-        width: "100%",
-        maxWidth: 1000,
-        maxHeight: "90vh",
-        overflowY: "auto",
-        borderRadius: 18,
-        boxShadow: "0 25px 60px rgba(0,0,0,0.4)",
-        position: "relative",
-      }}
-    >
-      {/* Close Button */}
-      <button
-        onClick={() => setSelectedExtraPackage(null)}
-        style={{
-          position: "absolute",
-          top: 16,
-          right: 16,
-          background: "#0f172a",
-          color: "#fff",
-          border: "none",
-          borderRadius: 10,
-          padding: "6px 14px",
-          fontSize: 14,
-          cursor: "pointer",
-        }}
-      >
-        ✕ Close
-      </button>
+        {/* EXTRA PACKAGES */}
+        {dest.extraPackages?.length > 0 && (
+          <section className="section">
+            <div className="section-header">
+              <h2 className="section-title">Exclusive Packages</h2>
+              <p className="section-desc">Handpicked experiences crafted just for you.</p>
+            </div>
 
-      {/* Image */}
-      {selectedExtraPackage.image && (
-        <img
-          src={selectedExtraPackage.image}
-          alt={selectedExtraPackage.title}
-          style={{
-            width: "100%",
-            height: 380,
-            objectFit: "cover",
-            borderTopLeftRadius: 18,
-            borderTopRightRadius: 18,
-          }}
-        />
-      )}
-
-      {/* Content */}
-      <div style={{ padding: "28px 32px" }}>
-        {/* Title */}
-        <h2
-          style={{
-            fontSize: 34,
-            fontWeight: 700,
-            marginBottom: 20,
-            color: "#0f172a",
-          }}
-        >
-          {selectedExtraPackage.title}
-        </h2>
-
-        {/* Quill Content */}
-        {selectedExtraPackage.quillContent && (
-          <div
-            className="rich-content"
-            style={{
-              fontSize: 16,
-              lineHeight: 1.7,
-              color: "#334155",
-              marginBottom: 36,
-            }}
-            dangerouslySetInnerHTML={{
-              __html: selectedExtraPackage.quillContent,
-            }}
-          />
-        )}
-
-        {/* Highlights */}
-        {selectedExtraPackage.highlights?.length > 0 && (
-          <>
-            <h3
-              style={{
-                fontSize: 24,
-                fontWeight: 600,
-                marginBottom: 18,
-                color: "#f97316",
-              }}
-            >
-              Package Highlights
-            </h3>
-
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                gap: 18,
-              }}
-            >
-              {selectedExtraPackage.highlights.map((h, idx) => (
+            <div className="package-grid">
+              {dest.extraPackages.map((pkg, index) => (
                 <div
-                  key={idx}
-                  style={{
-                    background: "#f8fafc",
-                    padding: 18,
-                    borderRadius: 14,
-                    border: "1px solid #e2e8f0",
-                    transition: "all 0.2s ease",
-                  }}
+                  key={index}
+                  className="package-card"
+                  onClick={() => setSelectedExtraPackage(pkg)}
                 >
-                  <h4
-                    style={{
-                      fontSize: 16,
-                      fontWeight: 600,
-                      marginBottom: 8,
-                      color: "#0f172a",
-                    }}
-                  >
-                    {h.title}
-                  </h4>
-                  <p
-                    style={{
-                      fontSize: 14,
-                      color: "#475569",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {h.description}
-                  </p>
+                  <img src={pkg.image} alt={pkg.title} loading="lazy" />
+                  <div className="package-overlay">
+                    <h3>{pkg.title}</h3>
+                  </div>
                 </div>
               ))}
             </div>
-          </>
+          </section>
         )}
-      </div>
-    </div>
-  </div>
-)}
 
-
-
-  {/* ABOUT */}
-  <section className="section light">
-    <h2 className="section-title">About {dest.name}</h2>
-    <p className="section-desc">{dest.description}</p>
-
-    <div
-      className="rich-content"
-      dangerouslySetInnerHTML={{ __html: dest.descriptionRich }}
-    />
-  </section>
-
-  {/* HIGHLIGHTS */}
-  <section className="section light">
-    <h2 className="section-title">{dest.name} Highlights</h2>
-
-    {dest.highlights?.length ? (
-      <div className="highlight-grid">
-        {dest.highlights.map((place, idx) => (
-          <div key={idx} className="highlight-card">
-            <h3>{place.title}</h3>
-            <p>{place.description}</p>
-          </div>
-        ))}
-      </div>
-    ) : (
-      <p>No highlights available.</p>
-    )}
-  </section>
-
-  {/* 🖼️ DESTINATION GALLERY */}
-{dest.galleryPhotos?.length > 0 && (
-  <section className="section light">
-    <h2 className="section-title">{dest.name} Gallery</h2>
-
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-        gap: 18,
-        marginTop: 20,
-      }}
-    >
-      {dest.galleryPhotos.map((img, index) => (
-        <div
-          key={index}
-          style={{
-            borderRadius: 16,
-            overflow: "hidden",
-            boxShadow: "0 10px 25px rgba(0,0,0,0.12)",
-            cursor: "pointer",
-          }}
-        >
-          <img
-            src={img}
-            alt={`${dest.name} gallery ${index + 1}`}
+        {/* PACKAGE MODAL */}
+        {selectedExtraPackage && (
+          <div
+            className="custom-modal-overlay"
             style={{
-              width: "100%",
-              height: 220,
-              objectFit: "cover",
-              transition: "transform 0.4s ease",
+              position: "fixed",
+              inset: 0,
+              zIndex: 9999,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: 20,
             }}
-            onMouseOver={(e) =>
-              (e.currentTarget.style.transform = "scale(1.08)")
-            }
-            onMouseOut={(e) =>
-              (e.currentTarget.style.transform = "scale(1)")
-            }
+            onClick={() => setSelectedExtraPackage(null)}
+          >
+            <div
+              className="custom-modal-content"
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                width: "100%",
+                maxWidth: 1100,
+                maxHeight: "90vh",
+                overflowY: "auto",
+                position: "relative",
+              }}
+            >
+              <button
+                onClick={() => setSelectedExtraPackage(null)}
+                style={{
+                  position: "absolute",
+                  top: 24,
+                  right: 24,
+                  background: "var(--primary)",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "50%",
+                  width: 44,
+                  height: 44,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 20,
+                  cursor: "pointer",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                  zIndex: 10,
+                }}
+              >
+                ✕
+              </button>
+
+              {selectedExtraPackage.image && (
+                <div style={{ height: 450, overflow: "hidden" }}>
+                  <img
+                    src={selectedExtraPackage.image}
+                    alt={selectedExtraPackage.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+              )}
+
+              <div style={{ padding: "40px 50px" }}>
+                <h2
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: "3rem",
+                    fontWeight: 700,
+                    marginBottom: 24,
+                    color: "var(--text-dark)",
+                  }}
+                >
+                  {selectedExtraPackage.title}
+                </h2>
+
+                {selectedExtraPackage.quillContent && (
+                  <div
+                    className="rich-content"
+                    style={{ marginBottom: 40 }}
+                    dangerouslySetInnerHTML={{
+                      __html: selectedExtraPackage.quillContent,
+                    }}
+                  />
+                )}
+
+                {selectedExtraPackage.highlights?.length > 0 && (
+                  <>
+                    <h3
+                      style={{
+                        fontSize: "1.8rem",
+                        fontWeight: 700,
+                        marginBottom: 24,
+                        color: "var(--accent)",
+                        fontFamily: "'Playfair Display', serif",
+                      }}
+                    >
+                      Journey Highlights
+                    </h3>
+
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                        gap: 20,
+                      }}
+                    >
+                      {selectedExtraPackage.highlights.map((h, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            background: "#fff",
+                            padding: 24,
+                            borderRadius: 20,
+                            border: "1px solid #eef2f6",
+                            boxShadow: "var(--shadow-sm)",
+                          }}
+                        >
+                          <h4
+                            style={{
+                              fontSize: "1.2rem",
+                              fontWeight: 700,
+                              marginBottom: 10,
+                              color: "var(--primary)",
+                            }}
+                          >
+                            {h.title}
+                          </h4>
+                          <p style={{ color: "var(--text-muted)", fontSize: "1rem" }}>
+                            {h.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ABOUT SECTION */}
+        <section className="section">
+          <div className="section-header">
+            <h2 className="section-title">Discover {dest.name}</h2>
+          </div>
+          <div
+            className="rich-content"
+            style={{ textAlign: "left", maxWidth: "100%" }}
+            dangerouslySetInnerHTML={{ __html: dest.descriptionRich || dest.description }}
           />
-        </div>
-      ))}
-    </div>
-  </section>
-)}
+        </section>
 
+        {/* HIGHLIGHTS SECTION */}
+        {dest.highlights?.length > 0 && (
+          <section className="section">
+            <div className="section-header">
+              <h2 className="section-title">Signature Highlights</h2>
+              <p className="section-desc">The must-see spots and experiences that define {dest.name}.</p>
+            </div>
+            <div className="highlight-grid">
+              {dest.highlights.map((place, idx) => (
+                <div key={idx} className="highlight-card">
+                  <h3>{place.title}</h3>
+                  <p>{place.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
-  <Footer />
-</div>
+        {/* GALLERY SECTION */}
+        {dest.galleryPhotos?.length > 0 && (
+          <section className="section">
+            <div className="section-header">
+              <h2 className="section-title">Visual Journey</h2>
+              <p className="section-desc">Glimpses of the beauty that awaits you.</p>
+            </div>
 
+            <div className="gallery-grid">
+              {dest.galleryPhotos.map((img, index) => (
+                <div key={index} className="gallery-item">
+                  <img src={img} alt={`${dest.name} gallery ${index + 1}`} loading="lazy" />
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <Footer />
+      </div>
     </>
   );
 };
 
 export default DestinationPage;
+

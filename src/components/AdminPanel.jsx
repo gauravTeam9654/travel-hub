@@ -781,6 +781,7 @@ import { auth, db } from "../../firebaseConfig";
 import "../AdminPanel.css";
 import DashboardImageManager from "./crousel";
 import AddTripPage from "./international_data";
+import HiddenGemsPage from "./hidden_gems_data";
 
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
@@ -965,9 +966,6 @@ const deleteExtraFromDestination = async (destSlug, index) => {
 };
 
 
-// ---------------------------
-// Fetch Data
-// ---------------------------
 const fetchPackages = async () => {
   const snapshot = await getDocs(collection(db, "packages"));
   setPackages(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
@@ -985,9 +983,6 @@ useEffect(() => {
   }
 }, [isAuth]);
 
-// ---------------------------
-// LOGIN
-// ---------------------------
 const handleLogin = async (e) => {
   e.preventDefault();
   try {
@@ -1001,18 +996,12 @@ const handleLogin = async (e) => {
   }
 };
 
-// ---------------------------
-// LOGOUT
-// ---------------------------
 const handleLogout = async () => {
   await signOut(auth);
   sessionStorage.removeItem("admin.auth");
   setIsAuth(false);
 };
 
-// ---------------------------
-// CRUD: PACKAGES
-// ---------------------------
 const handlePackageSubmit = async (e) => {
   e.preventDefault();
   if (!form.slug) return alert("Slug is required!");
@@ -1050,9 +1039,7 @@ const clearForm = () => {
   setShowPkgForm(false);
 };
 
-// ---------------------------
-// CRUD: DESTINATIONS
-// ---------------------------
+
 const handleDestSubmit = async (e) => {
   e.preventDefault();
   if (!destForm.slug) return alert("Destination slug is required!");
@@ -1787,6 +1774,7 @@ return (
 
  <DashboardImageManager/>
  <AddTripPage/>
+ <HiddenGemsPage/>
  <GalleryUploader/>
     </div>
   </>

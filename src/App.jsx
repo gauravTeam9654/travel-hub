@@ -27,6 +27,7 @@ import CorporateTours from "./components/CorporateTours";
 import WhatsAppChat from "./components/WhatsAppChat";
 import GalleryLocations from "./components/GalleryLocation";
 import GalleryDetails from "./components/GalleryDetails";
+import HiddenPackagePage from "./components/hiddenGemPackage";
 
 const App = () => {
   return (
@@ -39,8 +40,9 @@ const App = () => {
               <Navbar fixed={true} />
               <Hero />
               <TopDestinations />
-              <WhyChoose />
               <PackageSection title="Popular International Tour Packages" packages={mergePackages(bhutanBase)} />
+              <PackageSection title="Discover Our Hidden Gems" collectionName="hiddenGems" />
+              <WhyChoose />
               <GalleryLocations/>
               <CaptivatingDestinations />
               <Partners />
@@ -53,6 +55,7 @@ const App = () => {
   <Route path="/mygallery/:location" element={<GalleryDetails/>} />
   <Route path="/destination/:slug" element={<DestinationPage />} />
   <Route path="/package/:slug" element={<PackagePage />} />
+  <Route path="/hiddenGem/:slug" element={<HiddenPackagePage />} />
   <Route path="/b2b-enquiry" element={<B2BPage />} />
   <Route path="/about" element={<AboutPage />} />
   <Route path="/gallery" element={<Gallery />} />

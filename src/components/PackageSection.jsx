@@ -8,7 +8,7 @@ import { db } from "../../firebaseConfig";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const PackageSection = ({ title }) => {
+const PackageSection = ({ title, collectionName = "internationalTrips" }) => {
   const navigate = useNavigate();
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ const PackageSection = ({ title }) => {
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "internationalTrips"));
+        const querySnapshot = await getDocs(collection(db, collectionName));
         const trips = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -33,7 +33,7 @@ const PackageSection = ({ title }) => {
 
   const handleClick = (pkg, e) => {
     e.preventDefault();
-    const to = `/package/${encodeURIComponent(pkg.slug || pkg.id)}`;
+    const to =collectionName === "hiddenGems" ? `/hiddenGem/${encodeURIComponent(pkg.slug || pkg.id)}` : `/package/${encodeURIComponent(pkg.slug || pkg.id)}`;
     try {
       navigate(to);
     } catch {
@@ -66,7 +66,7 @@ const PackageSection = ({ title }) => {
       marginBottom: "16px",
     }}
   >
-    Discover Our <span style={{ color: "#ff7a18" }}>Exclusive Trips</span>
+    Discover Our <span style={{ color: "#ff7a18" }}>{ collectionName === "hiddenGems" ? "Hidden Gems" : "Exclusive Trips"}</span>
   </h2>
 
   <p
@@ -164,8 +164,8 @@ const PackageSection = ({ title }) => {
                 flexGrow: 1,
               }}
             >
-              {pkg.description?.slice(0, 110) ||
-                "Carefully curated destinations offering comfort, culture, and unforgettable memories."}
+              {pkg.description?.slice(0, 50) ||
+                "Carefully curated destinations offering comfort, culture, and unforgettable memories."}...
             </p>
 
             <button
