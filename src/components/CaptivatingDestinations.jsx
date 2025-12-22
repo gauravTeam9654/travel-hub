@@ -7,9 +7,9 @@ import "swiper/css/pagination";
 
 const faqs = [
   {
-    question: "How can TravelVista help me plan a vacation within my budget?",
+    question: "How can TravelHub help me plan a vacation within my budget?",
     answer:
-      "TravelVista curates customized journeys that match your style and budget, ensuring every moment feels exclusive without breaking the bank.",
+      "TravelHub curates customized journeys that match your style and budget, ensuring every moment feels exclusive without breaking the bank.",
   },
   {
     question: "Why should I consider travel insurance?",
@@ -17,7 +17,7 @@ const faqs = [
       "Travel insurance safeguards your plans from unforeseen events like cancellations or medical emergencies — giving you complete peace of mind.",
   },
   {
-    question: "Does TravelVista provide corporate travel assistance?",
+    question: "Does TravelHub provide corporate travel assistance?",
     answer:
       "Yes, we provide seamless business travel services, including priority booking, team coordination, and 24/7 concierge support.",
   },
@@ -26,19 +26,19 @@ const faqs = [
 const testimonials = [
   {
     text:
-      "Our Maldives trip was beyond perfect! TravelVista handled every detail with such elegance. It truly felt like a luxury experience without the luxury price tag.",
+      "Our Maldives trip was beyond perfect! TravelHub handled every detail with such elegance. It truly felt like a luxury experience without the luxury price tag.",
     name: "Sanya Kapoor",
     location: "Mumbai",
   },
   {
     text:
-      "An unforgettable journey to Bali. The team’s attention to detail and responsiveness made everything stress-free. Highly recommend TravelVista!",
+      "An unforgettable journey to Bali. The team’s attention to detail and responsiveness made everything stress-free. Highly recommend TravelHub!",
     name: "Rohit Agarwal",
     location: "Delhi",
   },
   {
     text:
-      "We chose TravelVista for our European honeymoon — it was magical. The itinerary was flawless, and their support was world-class.",
+      "We chose TravelHub for our European honeymoon — it was magical. The itinerary was flawless, and their support was world-class.",
     name: "Anjali & Karan",
     location: "Pune",
   },
