@@ -113,7 +113,7 @@ const Testimonials = () => {
             }}
           >
             {[
-              { ico: "🌍", val: "15+", lbl: "Top Destinations" },
+              { ico: "🏆", val: "12+", lbl: "Years of Service" },
               { ico: "🧭", val: "6,758+", lbl: "Planned Tours" },
               { ico: "💬", val: "18,963+", lbl: "Happy Travellers" },
               { ico: "🤝", val: "120+", lbl: "Trusted Partners" },

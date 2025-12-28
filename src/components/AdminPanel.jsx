@@ -782,6 +782,7 @@ import "../AdminPanel.css";
 import DashboardImageManager from "./crousel";
 import AddTripPage from "./international_data";
 import HiddenGemsPage from "./hidden_gems_data";
+import TopMessagesManager from "./TopMessagesManager";
 
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
@@ -1773,6 +1774,7 @@ return (
       )}
 
  <DashboardImageManager/>
+ <TopMessagesManager/>
  <AddTripPage/>
  <HiddenGemsPage/>
  <GalleryUploader/>

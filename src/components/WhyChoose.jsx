@@ -63,7 +63,7 @@ const WhyChoose = () => {
               marginBottom: 12,
             }}
           >
-            TRAVEL HUB
+            {/* TRAVEL HUB */}
           </p>
     
           <h2

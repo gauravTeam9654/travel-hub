@@ -195,16 +195,36 @@ const CaptivatingDestinations = () => {
 
 <section
   style={{
-    background: "linear-gradient(135deg, #fff3e6 0%, #ffe0c3 100%)",
-    color: "#2d2d2d",
-    padding: "100px 20px",
+    height: "85vh",
+    background: "url('/arunachal-final.png')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
     fontFamily: "Poppins, sans-serif",
+    color: "#fff",
   }}
 >
   <div
     style={{
+      position: "absolute",
+      inset: 0,
+      background: "rgba(0, 0, 0, 0.4)", // Adjustment for readability
+      zIndex: 1,
+    }}
+  />
+  <div
+    style={{
+      position: "relative",
+      zIndex: 2,
       maxWidth: 1200,
+      width: "100%",
       margin: "0 auto",
+      padding: "0 20px",
       display: "flex",
       flexWrap: "wrap",
       alignItems: "center",
@@ -220,11 +240,11 @@ const CaptivatingDestinations = () => {
           fontWeight: 700,
           marginBottom: 22,
           lineHeight: 1.25,
-          color: "#2b2b2b",
-        }}
+          color: "#fff",
+          }}
       >
         Discover the World with{" "}
-        <span style={{ color: "#ff7a18" }}>TravelHub</span>
+        <span style={{ color: "#ff7a18" }}>Travel<span style={{color:"#2b78e3ff"}}>Hub</span></span>
       </h2>
 
       <p
@@ -232,7 +252,7 @@ const CaptivatingDestinations = () => {
           fontSize: 18,
           lineHeight: 1.8,
           marginBottom: 36,
-          color: "#555",
+          color: "#f0f0f0",
           fontFamily: "Inter, sans-serif",
         }}
       >
@@ -257,21 +277,23 @@ const CaptivatingDestinations = () => {
           <div
             key={i}
             style={{
-              background: "#ffffff",
+              background: "rgba(255, 255, 255, 0.1)",
+              backdropFilter: "blur(10px)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
               borderRadius: 18,
               padding: "22px",
               textAlign: "center",
-              boxShadow: "0 10px 28px rgba(0,0,0,0.08)",
-              transition: "box-shadow 0.3s ease",
+              boxShadow: "0 10px 28px rgba(0,0,0,0.2)",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
             }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.boxShadow =
-                "0 14px 34px rgba(255,122,24,0.25)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.boxShadow =
-                "0 10px 28px rgba(0,0,0,0.08)")
-            }
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-5px)";
+              e.currentTarget.style.boxShadow = "0 14px 34px rgba(255, 122, 24, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 10px 28px rgba(0,0,0,0.2)";
+            }}
           >
             <div style={{ fontSize: 34, marginBottom: 10 }}>
               {item.icon}
@@ -280,7 +302,7 @@ const CaptivatingDestinations = () => {
               style={{
                 fontSize: 15,
                 fontWeight: 600,
-                color: "#333",
+                color: "#fff",
               }}
             >
               {item.label}
@@ -304,7 +326,9 @@ const CaptivatingDestinations = () => {
           <SwiperSlide key={idx}>
             <div
               style={{
-                background: "#ffffff",
+                background: "rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(10px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
                 borderRadius: 22,
                 padding: "46px 38px",
                 minHeight: 260,
@@ -317,7 +341,7 @@ const CaptivatingDestinations = () => {
               <p
                 style={{
                   fontStyle: "italic",
-                  color: "#555",
+                  color: "#f0f0f0",
                   fontSize: 18,
                   lineHeight: 1.8,
                   marginBottom: 26,
@@ -341,7 +365,7 @@ const CaptivatingDestinations = () => {
               <div
                 style={{
                   fontSize: 15,
-                  color: "#777",
+                  color: "#ccc",
                   textAlign: "center",
                 }}
               >

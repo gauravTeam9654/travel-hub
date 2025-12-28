@@ -3,68 +3,87 @@ import Navbar from "./Navbar";
 import WhyChoose from "./WhyChoose";
 import MergedFooter from "./TourGuideFooter";
 import Testimonials from "./Testimonials";
+import { Users, Shield, Map, Star, Heart, Award } from "lucide-react";
 import "../style.css"; 
 import "../AboutPage.css"; 
 
 const AboutPage = () => {
   return (
-    <div style={{ background: "#fff" }}>
+    <div style={{ background: "#fcfcfc" }}>
       <Navbar fixed />
 
-      {/* Hero banner */}
-      <section
-        style={{
-          position: "relative",
-          width: "100%",
-          minHeight: 380,
-          height: "48vh",
-          background: 'url("/darjeeling-final.png") center/cover no-repeat',
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(0,0,0,0.28)",
-          }}
-        />
-        <img
-          src="/Gradient.png"
-          alt="overlay"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.9 }}
-        />
-        <h1 style={{ position: "relative", zIndex: 1, color: "#111", fontSize: 56, fontWeight: 800, marginLeft: 32 }}>
-          About us
-        </h1>
-      </section>
-
-      <section className="about-grid">
-        <img
-          className="about-image"
-          src="/darjeeling-final.png"
-          alt="Darjeeling toy train"
-        />
-        <div className="about-text">
-          <h2 className="about-title">We Are TravelHub</h2>
-          <p className="about-copy">
-            TravelHub is a reputed travel company organising curated trips to Sikkim, North–East India, Bhutan and
-            neighbouring destinations. From humble beginnings to serving travellers across the globe, we focus on
-            thoughtful planning, reliable on-ground partners and great value.
-          </p>
-          <p className="about-copy">
-            Our experienced team ensures every journey is memorable—whether you want a relaxed family vacation or an
-            adventure-filled escape. Explore our handpicked packages or request a custom itinerary designed around your
-            interests. Let’s make your next holiday easy, flexible and unforgettable.
-          </p>
+      {/* Modern Hero Section */}
+      <section className="about-hero">
+        <div className="about-hero-overlay" />
+        <div className="about-hero-content">
+          <span className="about-hero-tag">ESTABLISHED SINCE 2012</span>
+          <h1>Designing Your Perfect <span className="text-orange">Getaway</span></h1>
+          <p>Over 12 years of crafting unforgettable memories across the globe.</p>
         </div>
       </section>
 
-  <Testimonials />
+      {/* Main Content Section */}
+      <section className="about-section">
+        <div className="container">
+          <div className="about-flex">
+            <div className="about-content">
+              <h2 className="section-subtitle">Our Story</h2>
+              <h3 className="section-title">A Decade of Dedicated Service</h3>
+              <p className="about-paragraph">
+                With over <strong>12 years of dedicated service</strong> in the travel industry, we specialize in creating personalized journeys that reflect the unique preferences of each client. Our mission is to take the stress out of planning, ensuring that every detail—from flights and accommodations to local experiences—is seamlessly arranged.
+              </p>
+              <p className="about-paragraph">
+                By combining our expertise, trusted partnerships, and passion for exploration, we aim to deliver experiences that go beyond expectations. At the heart of our work is a commitment to building lifelong relationships with our clients, making every journey unforgettable and every traveler feel valued.
+              </p>
+            </div>
+            <div className="about-image-wrapper">
 
-      {/* Why Choose */}
-      <div style={{  margin: "0 auto", padding: "16px 0px" }}>
+              <img
+                className="about-main-image"
+                src="/darjeeling-final.png"
+                alt="Travel experiences"
+              />
+              <div className="image-experience-badge">
+                <Award size={24} />
+                <span>Premium Quality</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Beliefs & Mission Section */}
+      <section className="values-section">
+        <div className="container">
+          <div className="values-header">
+            <h2 className="section-title-alt">Our Mission & Values</h2>
+            <p className="section-desc-alt">We believe travel is not just about visiting destinations but about building memories and meaningful connections.</p>
+          </div>
+          <div className="values-grid">
+            <div className="value-card">
+              <div className="value-icon"><Map size={32} /></div>
+              <h4>Personalized Journeys</h4>
+              <p>Every itinerary is crafted to reflect your unique preferences and travel style.</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon"><Shield size={32} /></div>
+              <h4>Seamless Planning</h4>
+              <p>From flights to local experiences, we handle every detail so you can travel stress-free.</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon"><Heart size={32} /></div>
+              <h4>Meaningful Connections</h4>
+              <p>We focus on building lifelong relationships with our clients through exceptional service.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* Why Choose Section Integration */}
+      <div className="about-why-choose">
         <WhyChoose />
       </div>
 
@@ -74,3 +93,4 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+

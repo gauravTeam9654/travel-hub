@@ -49,8 +49,10 @@ const DestinationPage = () => {
     const fetchDestination = async () => {
       setLoading(true);
       try {
+        console.log("Fetching destination for slug:", slug);
         const q = query(collection(db, "destinations"), where("slug", "==", slug));
         const querySnapshot = await getDocs(q);
+        console.log("constraucted",querySnapshot);
         if (!querySnapshot.empty) {
           const docData = querySnapshot.docs[0].data();
           setDest(docData);
@@ -95,7 +97,6 @@ const DestinationPage = () => {
     navigate({ pathname: location.pathname, search: `?tab=${tabKey}` }, { replace: true });
   };
 
-  // Update tab when URL changes
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const tabFromQuery = (searchParams.get("tab") || "").toLowerCase();
@@ -152,7 +153,7 @@ const DestinationPage = () => {
       <Navbar fixed />
 
       <div className="destination-page">
-        {/* HERO SECTION */}
+    
         <section
           className="destination-hero"
           style={{ backgroundImage: `url(${dest.heroImage || ""})` }}
@@ -164,8 +165,7 @@ const DestinationPage = () => {
           </div>
         </section>
 
-        {/* EXTRA PACKAGES */}
-        {dest.extraPackages?.length > 0 && (
+       {dest.extraPackages?.length > 0 && (
           <section className="section">
             <div className="section-header">
               <h2 className="section-title">Exclusive Packages</h2>
@@ -189,7 +189,6 @@ const DestinationPage = () => {
           </section>
         )}
 
-        {/* PACKAGE MODAL */}
         {selectedExtraPackage && (
           <div
             className="custom-modal-overlay"
@@ -331,7 +330,7 @@ const DestinationPage = () => {
           </div>
         )}
 
-        {/* ABOUT SECTION */}
+        
         <section className="section">
           <div className="section-header">
             <h2 className="section-title">Discover {dest.name}</h2>
@@ -343,7 +342,7 @@ const DestinationPage = () => {
           />
         </section>
 
-        {/* HIGHLIGHTS SECTION */}
+        
         {dest.highlights?.length > 0 && (
           <section className="section">
             <div className="section-header">
@@ -361,7 +360,6 @@ const DestinationPage = () => {
           </section>
         )}
 
-        {/* GALLERY SECTION */}
         {dest.galleryPhotos?.length > 0 && (
           <section className="section">
             <div className="section-header">

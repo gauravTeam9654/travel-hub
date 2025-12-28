@@ -26,8 +26,10 @@ import AdminPanel from "./components/AdminPanel";
 import CorporateTours from "./components/CorporateTours";
 import WhatsAppChat from "./components/WhatsAppChat";
 import GalleryLocations from "./components/GalleryLocation";
+// import GalleryDetails from "./components/GalleryDetails";
 import GalleryDetails from "./components/GalleryDetails";
 import HiddenPackagePage from "./components/hiddenGemPackage";
+import TopMessageBar from "./components/TopMessageBar";
 
 const App = () => {
   return (
@@ -37,6 +39,7 @@ const App = () => {
           path="/"
           element={
             <>
+              <TopMessageBar />
               <Navbar fixed={true} />
               <Hero />
               <TopDestinations />

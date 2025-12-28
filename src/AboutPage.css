@@ -1,99 +1,269 @@
-.about-grid {
+/* Base Layout & Containers */
+.container {
   max-width: 1200px;
-  margin: 40px auto;
+  margin: 0 auto;
   padding: 0 24px;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr; 
-  gap: 24px;
-  align-items: start;
 }
 
-.about-image {
+.text-orange {
+  color: #ff6600;
+}
+
+/* Hero Section */
+.about-hero {
+  position: relative;
   width: 100%;
-  display: block;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  object-fit: cover;
+  height: 50vh;
+  min-height: 400px;
+  background: url("/darjeeling-final.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 60px;
 }
 
-.about-text {
-  margin-left: 8px; 
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
 }
 
-.about-title {
-  font-size: 28px;
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.about-hero-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(255, 102, 0, 0.2);
+  border: 1px solid #ff6600;
+  color: #ff6600;
+  border-radius: 50px;
+  font-size: 0.85rem;
   font-weight: 700;
-  margin: 0 0 12px;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(4px);
 }
 
-.about-copy {
-  color: #333;
+.about-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.about-hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+/* About Content Section */
+.about-section {
+  padding: 80px 0;
+}
+
+.about-flex {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.section-subtitle {
+  color: #ff6600;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.about-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.about-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ff6600;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #888;
+  font-weight: 600;
+}
+
+/* Image Wrapper */
+.about-image-wrapper {
+  flex: 0.8;
+  position: relative;
+}
+
+.about-main-image {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.image-experience-badge {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: #ff6600;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+/* Values Section */
+.values-section {
+  padding: 100px 0;
+  background: #fdfdfd;
+}
+
+.values-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.section-title-alt {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.section-desc-alt {
+  font-size: 1.1rem;
+  color: #666;
   line-height: 1.6;
 }
 
-/* Mobile: stack like reference - small image on left, title to the right */
-@media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr; /* stack */
-    gap: 16px;
-    margin: 20px auto;
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.value-card {
+  padding: 40px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255, 102, 0, 0.1);
+  border-color: #ffe6d9;
+}
+
+.value-icon {
+  width: 64px;
+  height: 64px;
+  background: #fff0e6;
+  color: #ff6600;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.value-card h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.value-card p {
+  color: #777;
+  line-height: 1.7;
+}
+
+.about-why-choose {
+  margin-top: 60px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .about-flex {
+    flex-direction: column;
+    gap: 40px;
   }
 
-  /* First row: create a compact media-object layout */
-  .about-grid .about-image {
-    width: 160px;
-    height: 110px;
-    border-radius: 12px;
-    margin: 0 12px 0 0;
+  .about-image-wrapper {
+    order: -1;
+    width: 100%;
   }
 
-  /* Wrap heading and a short intro next to the thumbnail on small screens */
-  .about-text {
-    margin-left: 0;
-  }
-
-  /* Use a media-object: place image and a short heading row */
-  .about-grid {
-    display: block;
-  }
-
-  .about-grid > .about-image,
-  .about-grid > .about-text {
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  .about-grid > .about-text {
-    width: calc(100% - 172px); /* 160 + 12 margin */
-  }
-
-  .about-title {
-    font-size: 22px;
-    line-height: 1.2;
-    margin-top: 4px;
-  }
-
-  .about-copy {
-    font-size: 14px;
+  .values-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-/* Extra small: stack fully for very narrow widths */
-@media (max-width: 430px) {
-  .about-grid {
-    display: grid;
+@media (max-width: 768px) {
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .values-grid {
     grid-template-columns: 1fr;
   }
 
-  .about-grid > .about-image,
-  .about-grid > .about-text {
-    display: block;
-    width: 100%;
+  .about-hero {
+    height: 40vh;
   }
 
-  .about-grid .about-image {
-    width: 100%;
-    height: auto;
-    margin: 0 0 8px 0;
+  .section-title-alt {
+    font-size: 2rem;
+  }
+
+  .image-experience-badge {
+    padding: 15px 20px;
+    font-size: 0.9rem;
   }
 }
