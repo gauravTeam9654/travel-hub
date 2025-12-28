@@ -1,0 +1,189 @@
+/* CaptivatingDestinations.css */
+
+.captivating-section {
+    height: 85vh;
+    /* Default for desktop */
+    background: url('/arunachal-final.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+.captivating-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* Slightly darker for better contrast */
+    z-index: 1;
+}
+
+.captivating-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.captivating-left {
+    flex: 1;
+    min-width: 320px;
+    max-width: 520px;
+}
+
+.captivating-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 22px;
+    line-height: 1.25;
+    color: #fff;
+}
+
+.captivating-desc {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 36px;
+    color: #f0f0f0;
+    font-family: 'Inter', sans-serif;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 22px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 34px rgba(255, 122, 24, 0.3);
+}
+
+.stat-icon {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.captivating-right {
+    flex: 1;
+    min-width: 320px;
+    max-width: 560px;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 22px;
+    padding: 46px 38px;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #f0f0f0;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 26px;
+    text-align: center;
+}
+
+.testimonial-name {
+    font-weight: 600;
+    color: #ff7a18;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.testimonial-location {
+    font-size: 15px;
+    color: #ccc;
+    text-align: center;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .captivating-section {
+        height: auto;
+        padding: 60px 0;
+        align-items: flex-start;
+    }
+
+    .captivating-container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 0 24px;
+    }
+
+    .captivating-left,
+    .captivating-right {
+        max-width: 100%;
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .captivating-title {
+        font-size: 32px;
+        /* Smaller title on mobile */
+    }
+
+    .captivating-desc {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Force 2 columns on mobile */
+    }
+
+    .testimonial-card {
+        padding: 30px 20px;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .captivating-title {
+        font-size: 28px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        /* 1 column on very small screens if needed, usually 2 is fine */
+        gap: 15px;
+    }
+}

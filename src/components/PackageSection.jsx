@@ -88,7 +88,8 @@ const PackageSection = ({ title, collectionName = "internationalTrips" }) => {
     spaceBetween={24}
     slidesPerView={1}
     autoplay={{ delay: 3000, disableOnInteraction: false }}
-    pagination={{ clickable: true }}
+    // pagination={{ clickable: true }}
+    // navigation={true}
     loop
     breakpoints={{
       640: { slidesPerView: 2 },
