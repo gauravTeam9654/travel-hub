@@ -17,7 +17,7 @@ const AboutPage = () => {
         <div className="about-hero-overlay" />
         <div className="about-hero-content">
           <span className="about-hero-tag">ESTABLISHED SINCE 2012</span>
-          <h1>Designing Your Perfect <span className="text-orange">Getaway</span></h1>
+          <h1>The Complete Travel <span className="text-orange">Solution</span></h1>
           <p>Over 12 years of crafting unforgettable memories across the globe.</p>
         </div>
       </section>

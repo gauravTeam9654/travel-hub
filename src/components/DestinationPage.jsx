@@ -286,7 +286,7 @@ const DestinationPage = () => {
                         fontFamily: "'Playfair Display', serif",
                       }}
                     >
-                      Journey Highlights
+                      Journey Itinerary
                     </h3>
 
                     <div
@@ -347,7 +347,7 @@ const DestinationPage = () => {
           <section className="section">
             <div className="section-header">
               <h2 className="section-title">Signature Highlights</h2>
-              <p className="section-desc">The must-see spots and experiences that define {dest.name}.</p>
+              {/* <p className="section-desc">The must-see spots and experiences that define {dest.name}.</p> */}
             </div>
             <div className="highlight-grid">
               {dest.highlights.map((place, idx) => (

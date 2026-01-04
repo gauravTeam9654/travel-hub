@@ -118,11 +118,11 @@ const MergedFooter = () => {
           <div style={{ fontWeight: 600, marginBottom: 12 }}>Corporate Tours</div>
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             <li style={{ marginBottom: 18 }}>
-              <a href="/#/corporate-tours" style={{ color: '#222', textDecoration: 'none' }}>Corporate Tours</a>
+              {/* <a href="/#/corporate-tours" style={{ color: '#222', textDecoration: 'none' }}>Corporate Tours</a> */}
             </li>
             <li style={{ marginBottom: 18 }}><a href="/#/terms-and-conditions" style={{ color: '#222', textDecoration: 'none' }}>Terms and Conditions</a></li>
             <li style={{ marginBottom: 18 }}><a href="/#/privacy-policy" style={{ color: '#222', textDecoration: 'none' }}>Privacy Policy</a></li>
-            <li style={{ marginBottom: 18 }}><a href="/#/faq" style={{ color: '#222', textDecoration: 'none' }}>FAQ</a></li>
+            {/* <li style={{ marginBottom: 18 }}><a href="/#/faq" style={{ color: '#222', textDecoration: 'none' }}>FAQ</a></li> */}
             <li style={{ fontWeight: 600, marginBottom: 18 }}>
               {/* <a href="/#/tour-packages" style={{ color: '#222', textDecoration: 'none' }}>Popular Packages</a> */}
             </li>
