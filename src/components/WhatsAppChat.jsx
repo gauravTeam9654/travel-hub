@@ -3,7 +3,7 @@ import { WhatsappIcon } from 'react-share';
 import './WhatsAppChat.css';
 
 const WhatsAppChat = () => {
-  const phoneNumber = ""; 
+  const phoneNumber = "9953773227"; 
   const message = "Hi! I'm interested in your travel packages. Can you help me plan my trip?";
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
