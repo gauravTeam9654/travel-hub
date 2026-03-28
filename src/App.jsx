@@ -45,9 +45,9 @@ const App = () => {
               <TopDestinations />
               <PackageSection title="Popular International Tour Packages" packages={mergePackages(bhutanBase)} />
               <PackageSection title="Discover Our Hidden Gems" collectionName="hiddenGems" />
-              <WhyChoose />
-              <GalleryLocations/>
               <CaptivatingDestinations />
+              <GalleryLocations/>
+              <WhyChoose />
               <Partners />
               <MergedFooter />
             </>

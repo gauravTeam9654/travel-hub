@@ -1,0 +1,344 @@
+:root {
+  --pkg-primary: #ea580c;
+  --pkg-primary-dark: #c2410c;
+  --pkg-bg: #f8fafc;
+  --pkg-card-bg: #ffffff;
+  --pkg-text-main: #0f172a;
+  --pkg-text-muted: #475569;
+  --pkg-glass: rgba(255, 255, 255, 0.85);
+  --pkg-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --pkg-radius: 20px;
+}
+
+.modern-package-container {
+  background-color: var(--pkg-bg);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* Hero Section */
+.pkg-hero {
+  position: relative;
+  height: 70vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.pkg-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.pkg-hero:hover .pkg-hero-img {
+  transform: scale(1.05);
+}
+
+.pkg-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px;
+}
+
+.pkg-hero-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.pkg-hero-badge {
+  background: var(--pkg-glass);
+  backdrop-filter: blur(8px);
+  color: var(--pkg-primary);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.pkg-hero-title {
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1.1;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.pkg-hero-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* Main Layout */
+.pkg-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  max-width: 1200px;
+  margin: -60px auto 0;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Left Content */
+.pkg-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.pkg-card {
+  background: var(--pkg-card-bg);
+  border-radius: var(--pkg-radius);
+  padding: 35px;
+  box-shadow: var(--pkg-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.pkg-info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+
+.pkg-info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--pkg-text-muted);
+  font-weight: 500;
+}
+
+.pkg-info-icon {
+  color: var(--pkg-primary);
+}
+
+.pkg-section-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--pkg-text-main);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pkg-section-title::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, #ea580c20, transparent);
+}
+
+.pkg-description {
+  color: var(--pkg-text-muted);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* Itinerary */
+.itinerary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.itinerary-day-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.itinerary-day-card:hover {
+  border-color: var(--pkg-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+.itinerary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.itinerary-day-num {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--pkg-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.itinerary-day-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--pkg-text-main);
+}
+
+.itinerary-day-desc {
+  color: var(--pkg-text-muted);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* Sidebar */
+.pkg-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.sticky-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.price-card {
+  background: var(--pkg-text-main);
+  color: #fff;
+  border-radius: var(--pkg-radius);
+  padding: 35px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.price-label {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.price-value {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--pkg-primary);
+  margin-bottom: 5px;
+}
+
+.price-subtext {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 25px;
+}
+
+.book-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  background: var(--pkg-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.book-btn:hover {
+  background: #ff7a3c;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(234, 88, 12, 0.3);
+}
+
+.enquiry-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.enquiry-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Lists */
+.inclusions-card, .exclusions-card {
+  padding: 30px;
+}
+
+.pkg-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pkg-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1rem;
+  color: var(--pkg-text-muted);
+}
+
+.check-icon {
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.cross-icon {
+  color: #ef4444;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pkg-main-grid {
+    grid-template-columns: 1fr;
+    margin-top: -40px;
+  }
+  
+  .sticky-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .pkg-hero {
+    height: 50vh;
+  }
+  
+  .pkg-hero-overlay {
+    padding: 30px;
+  }
+  
+  .pkg-card {
+    padding: 25px;
+  }
+  
+  .pkg-info-row {
+    gap: 15px;
+  }
+}

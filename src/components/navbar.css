@@ -16,18 +16,33 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Scrolled state with glassmorphism */
-.navbar-scrolled {
-  height: 80px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+/* Transparent — floats over hero */
+.navbar-transparent {
+  background: transparent;
 }
 
-.navbar-fixed {
-  background: white;
+.navbar-transparent .nav-links li a,
+.navbar-transparent .dropdown-title {
+  color: #fff;
+}
+
+.navbar-transparent .nav-links li a:hover,
+.navbar-transparent .dropdown-title:hover {
+  color: #ffb347;
+}
+
+.navbar-transparent .nav-links li a::after {
+  background: #ffb347;
+}
+
+.navbar-transparent .hamburger-line {
+  background: #fff !important;
+}
+
+/* Solid white — after scrolling past hero */
+.navbar-solid {
+  background: #fff;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Nav links styling */

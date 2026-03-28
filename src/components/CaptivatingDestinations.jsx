@@ -187,13 +187,12 @@ function FAQSection() {
     </section>
   );
 }
-
 import "./CaptivatingDestinations.css";
 
 const CaptivatingDestinations = () => {
   return (
     <>
-      <FAQSection />
+      {/* <FAQSection /> */}
 
       <section className="captivating-section">
         <div className="captivating-overlay" />
@@ -261,8 +260,12 @@ const CaptivatingDestinations = () => {
           </div>
         </div>
       </section>
+
+      <FAQSection />
+
     </>
   );
 };
+
 
 export default CaptivatingDestinations;

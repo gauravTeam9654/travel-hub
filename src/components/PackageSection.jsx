@@ -142,7 +142,7 @@ const PackageSection = ({ title, collectionName = "internationalTrips" }) => {
                 marginBottom: "6px",
               }}
             >
-              {pkg.title}
+              {pkg.title.slice(0, 50)}
             </h3>
 
             <p
@@ -153,7 +153,7 @@ const PackageSection = ({ title, collectionName = "internationalTrips" }) => {
                 fontWeight: 500,
               }}
             >
-              {pkg.subtitle || "Premium Travel Experience"}
+              {pkg.subtitle?.slice(0, 25) || "Premium Travel Experience"}...
             </p>
 
             <p

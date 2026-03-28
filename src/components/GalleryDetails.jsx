@@ -1,16 +1,27 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { listAll, ref, getDownloadURL } from "firebase/storage";
-// import { storage } from "../firebaseConfig";
 import Loader from "../components/Loader";
 import { storage } from "../../firebaseConfig";
 import Navbar from "./Navbar";
 import MergedFooter from "./Footer";
+import "./GalleryDetails.css";
+
+// Lightbox imports
+import Lightbox from "yet-another-react-lightbox";
+import Video from "yet-another-react-lightbox/plugins/video";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 const GalleryDetails = () => {
   const { location } = useParams();
   const [media, setMedia] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  // Lightbox state
+  const [index, setIndex] = useState(-1);
 
   useEffect(() => {
     const fetchMedia = async () => {
@@ -23,10 +34,15 @@ const GalleryDetails = () => {
         );
 
         const urls = await Promise.all(
-          files.map(async (item) => ({
-            url: await getDownloadURL(item),
-            isVideo: item.name.match(/\.(mp4|webm|mov)$/),
-          }))
+          files.map(async (item) => {
+            const url = await getDownloadURL(item);
+            const isVideo = item.name.match(/\.(mp4|webm|mov)$/i);
+            return {
+              url,
+              isVideo,
+              name: item.name
+            };
+          })
         );
 
         setMedia(urls);
@@ -40,65 +56,71 @@ const GalleryDetails = () => {
     fetchMedia();
   }, [location]);
 
-  if (loading) return <Loader />;
+  // Prepare slides for lightbox
+  const slides = media.map((item) => {
+    if (item.isVideo) {
+      return {
+        type: "video",
+        width: 1280,
+        height: 720,
+        poster: item.url, // Standard behavior: use video as its own poster if no other provided
+        sources: [
+          {
+            src: item.url,
+            type: "video/mp4", // Default to mp4, browser will handle most formats
+          },
+        ],
+      };
+    }
+    return {
+      src: item.url,
+    };
+  });
+
+  if (loading) return <div className="loader-container"><Loader open={true} /></div>;
 
   return (
     <>
-        <Navbar/>
-    <section style={section}>
-      <h2 style={heading}>{location}</h2>
+      <Navbar />
+      <section className="gallery-details-section">
+        <h2 className="gallery-details-heading">{location}</h2>
 
-      <div style={grid}>
-        {media.map((item, index) =>
-          item.isVideo ? (
-            <video
-              key={index}
-              src={item.url}
-              controls
-              style={mediaItem}
-            />
-          ) : (
-            <img
-              key={index}
-              src={item.url}
-              alt=""
-              style={mediaItem}
-            />
-          )
-        )}
-      </div>
-    </section>
-      <MergedFooter/>
-      </>
+        <div className="gallery-details-grid">
+          {media.map((item, index) => (
+            <div 
+                key={index} 
+                className="gallery-media-item"
+                onClick={() => setIndex(index)}
+            >
+              {item.isVideo ? (
+                <video
+                  src={item.url}
+                  className="gallery-media-content"
+                />
+              ) : (
+                <img
+                  src={item.url}
+                  alt=""
+                  className="gallery-media-content"
+                />
+              )}
+            </div>
+          ))}
+        </div>
+
+        <Lightbox
+          index={index}
+          open={index >= 0}
+          close={() => setIndex(-1)}
+          slides={slides}
+          plugins={[Video, Thumbnails, Zoom]}
+        />
+      </section>
+      <MergedFooter />
+    </>
   );
 };
 
 export default GalleryDetails;
 
-/* ---------- STYLES ---------- */
 
-const section = {
-  padding: "10px 8%",
-  fontFamily: "'Poppins', sans-serif",
-};
-
-const heading = {
-  fontSize: "2.2rem",
-  fontWeight: 600,
-  marginBottom: "40px",
-  textAlign: "center",
-};
-
-const grid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-  gap: "20px",
-};
-
-const mediaItem = {
-  width: "100%",
-  height: "220px",
-  objectFit: "cover",
-  borderRadius: "12px",
-  boxShadow: "0 6px 18px rgba(0,0,0,0.12)",
-};

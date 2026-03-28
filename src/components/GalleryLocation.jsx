@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { listAll, ref, getDownloadURL } from "firebase/storage";
-// import { storage } from "../firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
 import { storage } from "../../firebaseConfig";
+import "./GalleryLocations.css";
 
 const GalleryLocations = () => {
   const [locations, setLocations] = useState([]);
@@ -44,29 +44,30 @@ const GalleryLocations = () => {
     fetchLocations();
   }, []);
 
-  if (loading) return <Loader />;
+  if (loading) return <div className="loader-container"><Loader open={true} /></div>;
 
   return (
-    <section style={section}>
-      <h2 style={heading}>
-        Our <span style={{ color: "#ff7a18" }}>Gallery</span>
+    <section className="gallery-locations-section">
+      <h2 className="gallery-locations-heading">
+        Our <span>Gallery</span>
       </h2>
 
-      <div style={grid}>
+      <div className="gallery-locations-grid">
         {locations.map((loc, index) => (
           <div
             key={index}
             onClick={() => navigate(`/mygallery/${loc.name}`)}
-            style={card}
+            className="gallery-location-card"
           >
             <img
               src={loc.cover}
               alt={loc.name}
-              style={image}
+              className="gallery-location-image"
             />
 
-            <div style={overlay}>
-              <h3 style={title}>{loc.name}</h3>
+            <div className="gallery-location-overlay">
+              <h3 className="gallery-location-title">{loc.name}</h3>
+              <p className="gallery-location-explore">Explore Collection →</p>
             </div>
           </div>
         ))}
@@ -77,52 +78,3 @@ const GalleryLocations = () => {
 
 export default GalleryLocations;
 
-/* ---------- STYLES ---------- */
-
-const section = {
-  padding: "90px 8%",
-  fontFamily: "'Poppins', sans-serif",
-};
-
-const heading = {
-  textAlign: "center",
-  fontSize: "2.4rem",
-  fontWeight: 600,
-  marginBottom: "60px",
-};
-
-const grid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-  gap: "30px",
-};
-
-const card = {
-  position: "relative",
-  height: "260px",
-  borderRadius: "14px",
-  overflow: "hidden",
-  cursor: "pointer",
-  boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-};
-
-const image = {
-  width: "100%",
-  height: "100%",
-  objectFit: "cover",
-};
-
-const overlay = {
-  position: "absolute",
-  inset: 0,
-  background: "linear-gradient(to top, rgba(0,0,0,0.6), transparent)",
-  display: "flex",
-  alignItems: "flex-end",
-  padding: "20px",
-};
-
-const title = {
-  color: "#fff",
-  fontSize: "1.4rem",
-  fontWeight: 600,
-};
