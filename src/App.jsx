@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import EnquiryForm from "./components/EnquiryForm";
@@ -12,7 +12,7 @@ import { mergePackages } from "./data/packageStore";
 import MergedFooter from "./components/TourGuideFooter";
 import DestinationPage from "./components/DestinationPage";
 import Destinations from "./components/Destinations";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import PackagePage from "./components/PackagePage";
 import B2BPage from "./components/B2BPage";
 import AboutPage from "./components/AboutPage";
@@ -31,9 +31,18 @@ import GalleryDetails from "./components/GalleryDetails";
 import HiddenPackagePage from "./components/hiddenGemPackage";
 import TopMessageBar from "./components/TopMessageBar";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 const App = () => {
   return (
     <div className="app-container">
+      <ScrollToTop />
       <Routes>
         <Route
           path="/"

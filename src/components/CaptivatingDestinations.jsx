@@ -47,136 +47,46 @@ const testimonials = [
 function FAQSection() {
   const [openIdx, setOpenIdx] = useState(0);
   return (
-    <section
-      style={{
-        background: "linear-gradient(135deg, #f8f9fc 0%, #eef3f9 100%)",
-        padding: "90px 20px",
-        transition: "all 0.5s ease-in-out",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 40,
-        }}
-      >
+    <section className="faq-section">
+      <div className="faq-container">
         {/* Illustration */}
         <div
-          style={{
-            flex: 1,
-            minWidth: 320,
-            display: "flex",
-            justifyContent: "center",
-            transform: "translateY(0px)",
-            transition: "transform 0.8s ease",
-          }}
+          className="faq-illustration"
           onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-10px)")}
           onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0px)")}
         >
           <img
             src="/faqs.png"
             alt="FAQ Illustration"
-            style={{
-              maxWidth: 480,
-              width: "100%",
-              height: "auto",
-              // filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.1))",
-              transition: "all 0.5s ease",
-            }}
+            className="faq-illustration-img"
           />
         </div>
 
         {/* FAQ List */}
-        <div style={{ flex: 1, minWidth: 320 }}>
-          <h2
-            style={{
-              fontSize: 36,
-              fontWeight: 800,
-              color: "#1a2b49",
-              marginBottom: 16,
-              fontFamily: "Poppins, sans-serif",
-              letterSpacing: "0.5px",
-              transition: "color 0.3s ease",
-            }}
-          >
+        <div className="faq-list">
+          <h2 className="faq-title">
             Frequently Asked Questions
           </h2>
-          <p
-            style={{
-              color: "#4a5568",
-              marginBottom: 28,
-              fontSize: 18,
-              fontFamily: "Inter, sans-serif",
-              lineHeight: 1.6,
-            }}
-          >
+          <p className="faq-subtitle">
             Everything you need to know before you start your next adventure.
           </p>
 
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              style={{
-                marginBottom: 12,
-                borderRadius: 14,
-                overflow: "hidden",
-                border: idx === openIdx ? "1px solid #4f46e5" : "1px solid #e2e8f0",
-                background: idx === openIdx ? "rgba(79,70,229,0.05)" : "#fff",
-                boxShadow:
-                  idx === openIdx
-                    ? "0 6px 18px rgba(79,70,229,0.12)"
-                    : "0 3px 8px rgba(0,0,0,0.04)",
-                transition: "all 0.4s ease",
-              }}
+              className={`faq-item ${idx === openIdx ? "faq-item--active" : ""}`}
             >
               <button
                 onClick={() => setOpenIdx(idx === openIdx ? -1 : idx)}
-                style={{
-                  width: "100%",
-                  background: "transparent",
-                  border: "none",
-                  padding: "22px 26px",
-                  fontSize: 17,
-                  fontWeight: 600,
-                  color: "#1a2b49",
-                  cursor: "pointer",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  transition: "background 0.4s ease, color 0.4s ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(79,70,229,0.08)")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                className="faq-question"
               >
-                {faq.question}
-                <span
-                  style={{
-                    fontSize: 22,
-                    color: idx === openIdx ? "#4f46e5" : "#64748b",
-                    transition: "color 0.3s ease",
-                  }}
-                >
+                <span>{faq.question}</span>
+                <span className={`faq-icon ${idx === openIdx ? "faq-icon--active" : ""}`}>
                   {idx === openIdx ? "−" : "+"}
                 </span>
               </button>
               {idx === openIdx && (
-                <div
-                  style={{
-                    background: "#fff",
-                    color: "#4a5568",
-                    padding: "18px 26px 26px",
-                    fontSize: 16,
-                    lineHeight: 1.7,
-                    opacity: 1,
-                    transform: "translateY(0)",
-                    transition: "all 0.4s ease",
-                  }}
-                >
+                <div className="faq-answer">
                   {faq.answer}
                 </div>
               )}

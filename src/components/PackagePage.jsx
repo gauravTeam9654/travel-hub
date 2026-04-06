@@ -65,7 +65,7 @@ const PackagePage = () => {
   const handleWhatsApp = () => {
     const message = `Hi TravelHub! I'm interested in the "${pkg.title}" package (${pkg.days}). Could you please share more details?`;
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/919999999999?text=${encodedMessage}`, "_blank");
+    window.open(`https://wa.me/9953773227?text=${encodedMessage}`, "_blank");
   };
 
   return (
