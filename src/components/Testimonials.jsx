@@ -5,32 +5,37 @@ import "swiper/css/pagination";
 
 const testimonials = [
   {
-    text: "Our trip to Sikkim was unforgettable! Even when plans changed, the TravelHub team was there every step of the way with exceptional care and guidance.",
-    name: "Ishika Soni",
-    location: "Bangalore",
+    text: "Thanks to the excellent services and guidance from Travel Hub, our US visa renewal process was incredibly smooth and hassle-free. Highly recommend their services to anyone seeking reliable travel assistance!",
+    name: "Ashok Kumar Yadav",
+    location: "Local Guide",
   },
   {
-    text: "TravelHub made our Bhutan journey absolutely seamless. From hotel bookings to local experiences — everything felt thoughtfully curated.",
-    name: "Rahul Mehra",
-    location: "Delhi",
+    text: "The Travel Hub team is incredibly supportive and provides highly efficient services. They helped me secure a visa within a very short timeframe for my business travel, making the entire process seamless and hassle-free. Highly recommend their services.",
+    name: "Meenakshi Ajith",
+    location: "Satisfied Client",
   },
   {
-    text: "Exploring Meghalaya was a dream come true. The planning, comfort, and coordination exceeded all expectations!",
-    name: "Priya Sharma",
-    location: "Mumbai",
+    text: "Got best price for my Europe trip and best in service. Very smooth and wonderful services. Thanks Mr Ajay Rawat, thanks a lot!",
+    name: "Santosh Santosh",
+    location: "Happy Traveller",
   },
   {
-    text: "A beautifully organized North-East adventure! Every detail reflected professionalism and a true love for travel.",
-    name: "Amit Verma",
-    location: "Kolkata",
+    text: "We planned a weekend trip to Jim Corbett & our experience with Travel Hub was superb. They offered choice of properties at a great price & all facilities. Special Thanks to team Travel Hub for their service.",
+    name: "Deepak Dhingra",
+    location: "Happy Traveller",
+  },
+  {
+    text: "Ajay is a phenomenal person. He worked with me for multiple bookings and always delivered exceptional service with great attention to detail.",
+    name: "Siddhartha Pramanik",
+    location: "Loyal Client",
   },
 ];
 
 const stats = [
-  { ico: "🏆", val: "12+",    lbl: "Years of Service" },
-  { ico: "🧭", val: "6,758+", lbl: "Planned Tours" },
-  { ico: "💬", val: "18,963+",lbl: "Happy Travellers" },
-  { ico: "🤝", val: "120+",   lbl: "Trusted Partners" },
+  { ico: "🏛️", val: "50+",    lbl: "Cultural Places" },
+  { ico: "🤝", val: "100+",   lbl: "Local Partners" },
+  { ico: "🧗", val: "50+",    lbl: "Adventure Experiences" },
+  { ico: "😊", val: "5,000+", lbl: "Happy Indian Travelers" },
 ];
 
 const Testimonials = () => (

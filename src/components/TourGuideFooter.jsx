@@ -138,8 +138,7 @@ const MergedFooter = () => {
               {[
                 { icon: "📞", text: "9558515518 / 9083701454" },
                 { icon: "✉️", text: "info@travelhub.com" },
-                { icon: "📍", text: "Shivmandir, Siliguri, Darjeeling – 734011" },
-                { icon: "🏢", text: "197, Jodhpur Gardens, Kolkata – 700045" },
+                { icon: "📍", text: "Shop No. 106, R G Complex, Plot No. 8, Vishwas Park Extn, Sector 5, Matiala, Delhi, 110075" },
               ].map((c, i) => (
                 <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                   <span style={{ fontSize: "1rem", marginTop: 1, flexShrink: 0 }}>{c.icon}</span>

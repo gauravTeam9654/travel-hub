@@ -122,10 +122,10 @@ const CaptivatingDestinations = () => {
             {/* STATS */}
             <div className="stats-grid">
               {[
-                { icon: "🌍", label: "20+ Destinations" },
-                { icon: "🗺️", label: "7,000+ Tours" },
-                { icon: "😊", label: "25,000+ Travelers" },
-                { icon: "🤝", label: "150+ Partners" },
+                { icon: "🏛️", label: "50+ Cultural Places" },
+                { icon: "🤝", label: "100+ Local Partners" },
+                { icon: "🧗", label: "50+ Adventure Experiences" },
+                { icon: "😊", label: "5,000+ Happy Indian Travelers" },
               ].map((item, i) => (
                 <div key={i} className="stat-card">
                   <div className="stat-icon">
