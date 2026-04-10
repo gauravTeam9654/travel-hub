@@ -25,22 +25,29 @@ const faqs = [
 
 const testimonials = [
   {
-    text:
-      "Our Maldives trip was beyond perfect! TravelHub handled every detail with such elegance. It truly felt like a luxury experience without the luxury price tag.",
-    name: "Sanya Kapoor",
-    location: "Mumbai",
+    text: "Thanks to the excellent services and guidance from Travel Hub, our US visa renewal process was incredibly smooth and hassle-free. Highly recommend their services to anyone seeking reliable travel assistance!",
+    name: "Ashok Kumar Yadav",
+    location: "Local Guide",
   },
   {
-    text:
-      "An unforgettable journey to Bali. The team’s attention to detail and responsiveness made everything stress-free. Highly recommend TravelHub!",
-    name: "Rohit Agarwal",
-    location: "Delhi",
+    text: "The Travel Hub team is incredibly supportive and provides highly efficient services. They helped me secure a visa within a very short timeframe for my business travel, making the entire process seamless and hassle-free. Highly recommend their services.",
+    name: "Meenakshi Ajith",
+    location: "Satisfied Client",
   },
   {
-    text:
-      "We chose TravelHub for our European honeymoon — it was magical. The itinerary was flawless, and their support was world-class.",
-    name: "Anjali & Karan",
-    location: "Pune",
+    text: "Got best price for my Europe trip and best in service. Very smooth and wonderful services. Thanks Mr Ajay Rawat, thanks a lot!",
+    name: "Santosh Santosh",
+    location: "Happy Traveller",
+  },
+  {
+    text: "We planned a weekend trip to Jim Corbett & our experience with Travel Hub was superb. They offered choice of properties at a great price & all facilities. Special Thanks to team Travel Hub for their service.",
+    name: "Deepak Dhingra",
+    location: "Happy Traveller",
+  },
+  {
+    text: "Ajay is a phenomenal person. He worked with me for multiple bookings and always delivered exceptional service with great attention to detail.",
+    name: "Siddhartha Pramanik",
+    location: "Loyal Client",
   },
 ];
 

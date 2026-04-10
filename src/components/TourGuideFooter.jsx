@@ -42,19 +42,16 @@ const MergedFooter = () => {
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               {[
                 {
-                  href: "https://instagram.com/tripjyada", label: "Instagram",
+                  href: "https://www.instagram.com/travelhubind?igsh=ZnpnaXlndno1Mnpq&utm_source=qr", label: "Instagram",
                   svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#E1306C" strokeWidth="2"/><circle cx="12" cy="12" r="4.5" stroke="#E1306C" strokeWidth="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="#E1306C"/></svg>,
                 },
+               
                 {
-                  href: "https://facebook.com/tripjyada", label: "Facebook",
-                  svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M22 12.06C22 6.55 17.52 2.08 12 2.08 6.48 2.08 2 6.55 2 12.06c0 4.97 3.66 9.09 8.44 9.88v-6.99H8.1v-2.89h2.34V9.41c0-2.3 1.37-3.57 3.46-3.57.99 0 2.03.18 2.03.18v2.24h-1.14c-1.12 0-1.47.7-1.47 1.42v1.71h2.5l-.4 2.89h-2.1v6.99C18.34 21.15 22 17.03 22 12.06z"/></svg>,
-                },
-                {
-                  href: "https://wa.me/919558515518", label: "WhatsApp",
+                  href: "https://wa.me/9953773227", label: "WhatsApp",
                   svg: <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#25D366" d="M20.5 3.5A11 11 0 0 0 3.6 20.4l-1.1 4 4.1-1.1A11 11 0 1 0 20.5 3.5Zm-8.5 17c-1.7 0-3.3-.5-4.7-1.4l-.3-.2-2.8.8.8-2.7-.2-.3A8.6 8.6 0 1 1 12 20.5Z"/><path fill="#25D366" d="M16.9 13.7c-.2-.1-1.3-.7-1.5-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.9 1-.2.2-.3.2-.6.1a7 7 0 0 1-3.3-2.9c-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.2 3.9.6.3 1 .5 1.3.6.5.2 1 .2 1.4.1.4-.1 1.3-.5 1.5-1.1.2-.6.2-1 .1-1.1-.1-.1-.2-.1-.3-.2Z"/></svg>,
                 },
                 {
-                  href: "mailto:info@travelhub.com", label: "Email",
+                  href: "mailto: travelhub05@gmail.com", label: "Email",
                   svg: <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z" fill="#6ba3ff"/></svg>,
                 },
               ].map((s) => (
@@ -137,7 +134,7 @@ const MergedFooter = () => {
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {[
                 { icon: "📞", text: "9558515518 / 9083701454" },
-                { icon: "✉️", text: "info@travelhub.com" },
+                { icon: "✉️", text: "travelhub05@gmail.com" },
                 { icon: "📍", text: "Shop No. 106, R G Complex, Plot No. 8, Vishwas Park Extn, Sector 5, Matiala, Delhi, 110075" },
               ].map((c, i) => (
                 <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
