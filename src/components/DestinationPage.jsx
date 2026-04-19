@@ -182,6 +182,9 @@ const DestinationPage = () => {
                   <img src={pkg.image} alt={pkg.title} loading="lazy" />
                   <div className="package-overlay">
                     <h3>{pkg.title}</h3>
+                    {pkg.price && (
+                      <p className="package-price">Starting from ₹{pkg.price}</p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -258,12 +261,30 @@ const DestinationPage = () => {
                     fontFamily: "'Playfair Display', serif",
                     fontSize: "3rem",
                     fontWeight: 700,
-                    marginBottom: 24,
+                    marginBottom: 12,
                     color: "var(--text-dark)",
                   }}
                 >
                   {selectedExtraPackage.title}
                 </h2>
+
+                {selectedExtraPackage.price && (
+                  <div
+                    style={{
+                      display: "inline-block",
+                      background: "var(--primary)",
+                      color: "#fff",
+                      padding: "8px 18px",
+                      borderRadius: 999,
+                      fontSize: "1.1rem",
+                      fontWeight: 700,
+                      marginBottom: 24,
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                    }}
+                  >
+                    Starting from ₹{selectedExtraPackage.price}
+                  </div>
+                )}
 
                 {selectedExtraPackage.quillContent && (
                   <div

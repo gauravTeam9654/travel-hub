@@ -840,7 +840,7 @@ const AdminPanel = () => {
 const [openExtraManagerFor, setOpenExtraManagerFor] = useState(null);
 
 // draft for the inline manager (single package at a time)
-const [extraDraft, setExtraDraft] = useState({ title: "", image: "", highlights: [] , quillContent : ""});
+const [extraDraft, setExtraDraft] = useState({ title: "", image: "", price: "", highlights: [] , quillContent : ""});
 
 // index when editing an existing extra inside a destination
 const [editingExtraIndexFor, setEditingExtraIndexFor] = useState({ slug: null, index: null });
@@ -915,7 +915,7 @@ const saveExtraPackageForDestination = async (destSlug) => {
     const destination = destinations.find(d => d.slug === destSlug) || null;
     const current = destination?.extraPackages ? [...destination.extraPackages] : [];
 
-    const newPkg = { title: extraDraft.title, image: imageUrl || "", highlights: extraDraft.highlights || []  , quillContent: extraDraft.quillContent || ""};
+    const newPkg = { title: extraDraft.title, image: imageUrl || "", price: extraDraft.price || "", highlights: extraDraft.highlights || []  , quillContent: extraDraft.quillContent || ""};
 
     // if editing, replace at index
     if (editingExtraIndexFor.slug === destSlug && editingExtraIndexFor.index !== null) {
@@ -931,7 +931,7 @@ const saveExtraPackageForDestination = async (destSlug) => {
     await fetchDestinations();
 
     // reset UI
-    setExtraDraft({ title: "", image: "", highlights: [] , quillContent: ""});
+    setExtraDraft({ title: "", image: "", price: "", highlights: [] , quillContent: ""});
     setEditingExtraIndexFor({ slug: null, index: null });
     setOpenExtraManagerFor(null);
   } catch (err) {
@@ -944,9 +944,9 @@ const saveExtraPackageForDestination = async (destSlug) => {
 const startEditExtraForDestination = (destSlug, index) => {
   const destination = destinations.find(d => d.slug === destSlug);
   if (!destination) return;
-  const pkg = destination.extraPackages?.[index] || { title: "", image: "", highlights: [] };
+  const pkg = destination.extraPackages?.[index] || { title: "", image: "", price: "", highlights: [] };
   // populate draft
-  setExtraDraft({ title: pkg.title || "", image: pkg.image || "", highlights: pkg.highlights || [] , quillContent: pkg.quillContent || ""});
+  setExtraDraft({ title: pkg.title || "", image: pkg.image || "", price: pkg.price || "", highlights: pkg.highlights || [] , quillContent: pkg.quillContent || ""});
   setEditingExtraIndexFor({ slug: destSlug, index });
   setOpenExtraManagerFor(destSlug);
 };
@@ -1429,11 +1429,11 @@ return (
       // toggle manager open for this destination
       if (openExtraManagerFor === d.slug) {
         setOpenExtraManagerFor(null);
-        setExtraDraft({ title: "", image: "", highlights: [] , quillContent: ""});
+        setExtraDraft({ title: "", image: "", price: "", highlights: [] , quillContent: ""});
         setEditingExtraIndexFor({ slug: null, index: null });
       } else {
         setOpenExtraManagerFor(d.slug);
-        setExtraDraft({ title: "", image: "", highlights: [] , quillContent: ""});
+        setExtraDraft({ title: "", image: "", price: "", highlights: [] , quillContent: ""});
         setEditingExtraIndexFor({ slug: null, index: null });
       }
     }}
@@ -1486,6 +1486,21 @@ return (
               }}
             />
             <input
+              type="text"
+              placeholder="Price (e.g. 12999)"
+              value={extraDraft.price}
+              onChange={(e) =>
+                setExtraDraft(prev => ({ ...prev, price: e.target.value }))
+              }
+              style={{
+                flex: 1,
+                minWidth: 160,
+                padding: 10,
+                borderRadius: 8,
+                border: "1px solid #ccc",
+              }}
+            />
+            <input
               type="file"
               accept="image/*"
               onChange={(e) => {
@@ -1511,7 +1526,7 @@ return (
               style={{ padding: "10px 16px", borderRadius: 8, cursor: "pointer" }}
               onClick={() => {
                 setOpenExtraManagerFor(null);
-                setExtraDraft({ title: "", image: "", quillContent: "", highlights: [] });
+                setExtraDraft({ title: "", image: "", price: "", quillContent: "", highlights: [] });
                 setEditingExtraIndexFor({ slug: null, index: null });
               }}
             >
@@ -1631,7 +1646,14 @@ return (
                       style={{ width: 80, height: 60, objectFit: "cover", borderRadius: 6 }}
                     />
                   )}
-                  <div style={{ flex: 1, fontWeight: 600 }}>{pkg.title}</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontWeight: 600 }}>{pkg.title}</div>
+                    {pkg.price && (
+                      <div style={{ fontSize: 13, color: "#475569", marginTop: 2 }}>
+                        ₹{pkg.price}
+                      </div>
+                    )}
+                  </div>
                   <button
                     className="btn-mini"
                     style={{ cursor: "pointer" }}
