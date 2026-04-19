@@ -24,15 +24,96 @@
   overflow: hidden;
 }
 
+/* Hero Carousel */
+.pkg-hero-carousel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .pkg-hero-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s ease;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.pkg-hero:hover .pkg-hero-img {
+.pkg-hero-img.active {
+  opacity: 1;
+}
+
+.pkg-hero:hover .pkg-hero-img.active {
   transform: scale(1.05);
+}
+
+/* Carousel Arrows */
+.pkg-hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 15;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.pkg-hero:hover .pkg-hero-arrow {
+  opacity: 1;
+}
+
+.pkg-hero-arrow:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.pkg-hero-arrow-left {
+  left: 20px;
+}
+
+.pkg-hero-arrow-right {
+  right: 20px;
+}
+
+/* Carousel Dots */
+.pkg-hero-dots {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  display: flex;
+  gap: 10px;
+}
+
+.pkg-hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.pkg-hero-dot.active {
+  background: #fff;
+  transform: scale(1.3);
+  border-color: #fff;
 }
 
 .pkg-hero-overlay {
@@ -329,16 +410,34 @@
   .pkg-hero {
     height: 50vh;
   }
-  
+
   .pkg-hero-overlay {
     padding: 30px;
   }
-  
+
   .pkg-card {
     padding: 25px;
   }
-  
+
   .pkg-info-row {
     gap: 15px;
+  }
+
+  .pkg-hero-arrow {
+    width: 36px;
+    height: 36px;
+    opacity: 1;
+  }
+
+  .pkg-hero-arrow-left {
+    left: 10px;
+  }
+
+  .pkg-hero-arrow-right {
+    right: 10px;
+  }
+
+  .pkg-hero-dots {
+    bottom: 60px;
   }
 }

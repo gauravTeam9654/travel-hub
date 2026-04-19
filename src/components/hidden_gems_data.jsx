@@ -11,7 +11,7 @@ const HiddenGemsPage = () => {
     days: "",
     price: "",
     description: "",
-    image: "",
+    images: [],
     inclusions: "",
     exclusions: "",
   });
@@ -44,28 +44,34 @@ const HiddenGemsPage = () => {
   };
 
 const handleImageUpload = async (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
+  const files = Array.from(e.target.files);
+  if (files.length === 0) return;
 
   setUploading(true);
 
   try {
-    const fileRef = ref(storage, `hiddenGems/${Date.now()}-${file.name}`);
+    const uploadPromises = files.map(async (file) => {
+      const fileRef = ref(storage, `hiddenGems/${Date.now()}-${file.name}`);
+      await uploadBytes(fileRef, file);
+      return getDownloadURL(fileRef);
+    });
 
-    // Upload file
-    await uploadBytes(fileRef, file);
-
-    // Get download URL
-    const downloadURL = await getDownloadURL(fileRef);
-
-    setFormData({ ...formData, image: downloadURL });
-    alert("Image uploaded successfully!");
+    const newUrls = await Promise.all(uploadPromises);
+    setFormData((prev) => ({ ...prev, images: [...prev.images, ...newUrls] }));
+    alert(`${files.length} image(s) uploaded successfully!`);
   } catch (err) {
     console.error("Upload Error:", err);
     alert("Image upload failed");
   }
 
   setUploading(false);
+};
+
+const removeImage = (index) => {
+  setFormData((prev) => ({
+    ...prev,
+    images: prev.images.filter((_, i) => i !== index),
+  }));
 };
 
   // ✅ Itinerary Handlers
@@ -110,7 +116,7 @@ const handleImageUpload = async (e) => {
         days: "",
         price: "",
         description: "",
-        image: "",
+        images: [],
         inclusions: "",
         exclusions: "",
       });
@@ -132,7 +138,7 @@ const handleImageUpload = async (e) => {
       days: trip.days.replace(" Days", "") || "",
       price: trip.price || "",
       description: trip.description || "",
-      image: trip.image || "",
+      images: trip.images || (trip.image ? [trip.image] : []),
       inclusions: (trip.inclusions || []).join(", "),
       exclusions: (trip.exclusions || []).join(", "),
     });
@@ -274,28 +280,58 @@ const handleImageUpload = async (e) => {
     </div>
   </div>
 
-  {/* Image Upload */}
+  {/* Image Upload - Multiple */}
   <div>
-    <label style={{ fontWeight: 600 }}>Upload Image</label>
+    <label style={{ fontWeight: 600 }}>Upload Images (Multiple allowed)</label>
     <input
       type="file"
       accept="image/*"
+      multiple
       onChange={handleImageUpload}
       style={{ marginTop: "10px" }}
     />
-    {uploading && <p style={{ color: "#ff6600" }}>Uploading image...</p>}
-    {formData.image && (
-      <img
-        src={formData.image}
-        alt="preview"
-        style={{
-          width: "100%",
-          height: "250px",
-          objectFit: "cover",
-          borderRadius: "10px",
-          marginTop: "15px",
-        }}
-      />
+    {uploading && <p style={{ color: "#ff6600" }}>Uploading images...</p>}
+    {formData.images.length > 0 && (
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "15px" }}>
+        {formData.images.map((url, idx) => (
+          <div key={idx} style={{ position: "relative", width: "150px", height: "110px" }}>
+            <img
+              src={url}
+              alt={`preview-${idx}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                borderRadius: "8px",
+                border: "2px solid #eee",
+              }}
+            />
+            <button
+              type="button"
+              onClick={() => removeImage(idx)}
+              style={{
+                position: "absolute",
+                top: "-8px",
+                right: "-8px",
+                backgroundColor: "#e74c3c",
+                color: "#fff",
+                border: "none",
+                borderRadius: "50%",
+                width: "24px",
+                height: "24px",
+                cursor: "pointer",
+                fontSize: "14px",
+                lineHeight: "1",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              x
+            </button>
+          </div>
+        ))}
+      </div>
     )}
   </div>
 
@@ -487,7 +523,7 @@ const handleImageUpload = async (e) => {
                 }}
               >
                 <img
-                  src={trip.image}
+                  src={(trip.images && trip.images[0]) || trip.image}
                   alt={trip.title}
                   style={{ width: "100%", height: "160px", objectFit: "cover" }}
                 />

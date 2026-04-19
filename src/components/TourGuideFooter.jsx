@@ -110,7 +110,7 @@ const MergedFooter = () => {
               {[
                 { label: "Terms & Conditions", href: "/#/terms-and-conditions" },
                 { label: "Privacy Policy", href: "/#/privacy-policy" },
-                { label: "Best Travel Agency in India", href: "/#/" },
+                // { label: "Best Travel Agency in India", href: "/#/" },
               ].map(l => (
                 <li key={l.label} style={{ marginBottom: 14 }}>
                   <a href={l.href} style={{
@@ -133,7 +133,7 @@ const MergedFooter = () => {
             <div style={{ fontWeight: 700, marginBottom: 20, color: "#fff", fontSize: "0.95rem", letterSpacing: "0.05em" }}>Contact Us</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {[
-                { icon: "📞", text: "9558515518 / 9083701454" },
+                { icon: "📞", text: "9953773227" },
                 { icon: "✉️", text: "travelhub05@gmail.com" },
                 { icon: "📍", text: "Shop No. 106, R G Complex, Plot No. 8, Vishwas Park Extn, Sector 5, Matiala, Delhi, 110075" },
               ].map((c, i) => (

@@ -117,7 +117,7 @@ const CaptivatingDestinations = () => {
           {/* LEFT CONTENT */}
           <div className="captivating-left">
             <h2 className="captivating-title">
-              Discover the World with{" "}
+              Discover the India with{" "}
               <span style={{ color: "#ff7a18" }}>Travel<span style={{color:"#2b78e3ff"}}>Hub</span></span>
             </h2>
 
@@ -178,7 +178,7 @@ const CaptivatingDestinations = () => {
         </div>
       </section>
 
-      <FAQSection />
+      {/* <FAQSection /> */}
 
     </>
   );

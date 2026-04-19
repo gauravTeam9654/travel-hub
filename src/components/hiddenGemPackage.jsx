@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./ModernPackagePage.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -11,6 +11,8 @@ import {
   CheckCircle2,
   XCircle,
   MessageCircle,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { useParams } from "react-router-dom";
 import { db } from "../../firebaseConfig";
@@ -21,6 +23,8 @@ const HiddenPackagePage = () => {
   const decodedSlug = decodeURIComponent(slug);
   const [pkg, setPkg] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const timerRef = useRef(null);
 
   useEffect(() => {
     const fetchPackage = async () => {
@@ -43,6 +47,28 @@ const HiddenPackagePage = () => {
     fetchPackage();
     window.scrollTo(0, 0);
   }, [decodedSlug]);
+
+  // Build images array (backward compatible with old single `image` field)
+  const heroImages = pkg?.images?.length ? pkg.images : pkg?.image ? [pkg.image] : [];
+
+  const goToSlide = useCallback((index) => {
+    setCurrentSlide(index);
+  }, []);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  }, [heroImages.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  }, [heroImages.length]);
+
+  // Auto-slide every 4 seconds
+  useEffect(() => {
+    if (heroImages.length <= 1) return;
+    timerRef.current = setInterval(nextSlide, 4000);
+    return () => clearInterval(timerRef.current);
+  }, [heroImages.length, nextSlide]);
 
   if (loading) return (
     <div className="modern-package-container">
@@ -72,9 +98,39 @@ const HiddenPackagePage = () => {
     <div className="modern-package-container">
       <Navbar fixed />
 
-      {/* Hero Section */}
+      {/* Hero Carousel Section */}
       <section className="pkg-hero">
-        <img src={pkg.image} alt={pkg.title} className="pkg-hero-img" />
+        <div className="pkg-hero-carousel">
+          {heroImages.map((img, idx) => (
+            <img
+              key={idx}
+              src={img}
+              alt={`${pkg.title} - ${idx + 1}`}
+              className={`pkg-hero-img ${idx === currentSlide ? "active" : ""}`}
+            />
+          ))}
+        </div>
+
+        {heroImages.length > 1 && (
+          <>
+            <button className="pkg-hero-arrow pkg-hero-arrow-left" onClick={prevSlide}>
+              <ChevronLeft size={28} />
+            </button>
+            <button className="pkg-hero-arrow pkg-hero-arrow-right" onClick={nextSlide}>
+              <ChevronRight size={28} />
+            </button>
+            <div className="pkg-hero-dots">
+              {heroImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`pkg-hero-dot ${idx === currentSlide ? "active" : ""}`}
+                  onClick={() => goToSlide(idx)}
+                />
+              ))}
+            </div>
+          </>
+        )}
+
         <div className="pkg-hero-overlay">
           <div className="pkg-hero-content">
             <span className="pkg-hero-badge">Hidden Gem</span>

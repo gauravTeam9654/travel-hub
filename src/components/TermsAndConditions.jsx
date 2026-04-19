@@ -23,143 +23,169 @@ const TermsAndConditions = () => {
       </header>
 
       <main className="terms-main" role="main">
-        <Section title="Mandatory Documents">
+        <Section title="1. Introduction">
           <ul>
             <li>
-              <b>Sikkim:</b> Valid ID proof – Voter ID / Passport / Driving License. PAN Card & Aadhar Card are not accepted. For children below 18 years: Aadhar or Birth Certificate. 4 passport-sized photographs of each person required.
+              These Terms and Conditions govern all the services offered and provided by Travel Hub, and they form the
+              complete understanding between the traveler and the company with regard to the use of our travel and tour
+              services.
             </li>
             <li>
-              <b>North East:</b> Aadhar Card, Driving License, Passport, or Voter ID required (PAN Card not accepted). Aadhar Card (front & back) and passport-size photo copy required for booking.
-            </li>
-            <li>
-              <b>Bhutan:</b>
-              <ul>
-                <li>Adults (18+): Original Voter Card or Passport (minimum 6 months validity).</li>
-                <li>Children (below 18): Original Birth Certificate in English.</li>
-                <li>Aadhar Card, PAN Card & Driving License not accepted.</li>
-              </ul>
+              By booking any package, service, or arrangement with Travel Hub, you acknowledge, accept, and fully agree
+              to abide by these Terms and Conditions in their entirety.
             </li>
           </ul>
         </Section>
 
-        <Section title="Payment Policy">
+        <Section title="2. Booking and Payment">
           <ul>
             <li>
-              <b>Sikkim:</b>
-              <ul>
-                <li>40% advance payment to confirm the package.</li>
-                <li>Remaining balance on arrival (cash/demand draft; 3% charge for credit card).</li>
-                <li>Arrival details (train/flight) required for scheduling.</li>
-              </ul>
+              All bookings must be made exclusively through Travel Hub’s official channels, which include our website,
+              our office, or our authorized representatives, to ensure that your booking is genuine and properly recorded
+              in our system.
             </li>
             <li>
-              <b>Bhutan:</b>
-              <ul>
-                <li>40% advance payment to confirm booking.</li>
-                <li>Remaining balance to be paid at the office or airport before the trip starts.</li>
-              </ul>
+              A deposit is required at the time of booking in order to confirm your reservation, while the remaining
+              balance must be paid in full before the scheduled travel date as per the agreed payment schedule.
             </li>
             <li>
-              <b>North East:</b>
-              <ul>
-                <li>Credit Cards / Traveler’s Cheques not freely accepted.</li>
-                <li>Advance paid is non-refundable in case of cancellation due to COVID or similar situations. It can be adjusted for future bookings.</li>
-              </ul>
+              Please note that prices quoted are subject to change until the full payment has been received and the
+              booking is fully confirmed, as rates offered by suppliers may fluctuate with time and availability.
+            </li>
+            <li>
+              All payments must be made in Indian Rupees (INR), unless otherwise specified in writing at the time of
+              booking for certain international arrangements.
             </li>
           </ul>
         </Section>
 
-        <Section title="About Transport">
+        <Section title="3. Usual Cancellation Policy">
           <ul>
             <li>
-              <b>Sikkim:</b> Due to limited parking, guests must wait in the hotel lobby. Vehicles provided sector-wise, not on disposal basis (only point-to-point). Nathula trip will be on a shared cab basis.
+              If a booking is cancelled anywhere from 0 days up to 7 days before the scheduled check-in date, 100% of
+              the total booking amount will be charged as cancellation fees.
             </li>
             <li>
-              <b>North East:</b> AC will not run in hilly areas. Tawang: No local sightseeing vehicle provided by us. Guests must hire local vehicles (cost between ₹4500–₹5500 approx, excluding Bumla). No Jio network in Tawang.
+              If a booking is cancelled between 7 days and 20 days prior to the check-in date, 50% of the total booking
+              amount will be charged as cancellation fees.
             </li>
             <li>
-              <b>Bhutan:</b> AC is not allowed on hilly roads (to be discussed with the driver). Vehicle timing: 9:00 AM to 6:00 PM, point-to-point service only, not at disposal.
-            </li>
-          </ul>
-        </Section>
-
-        <Section title="Hotel Accommodation">
-          <ul>
-            <li>
-              <b>Sikkim:</b> Hotel check-in/out depends on hotel policy. No responsibility for losses/costs incurred.
+              If a booking is cancelled 30 days or more before the check-in date, a minimal charge of 10% of the total
+              booking amount will be applicable as cancellation fees.
             </li>
             <li>
-              <b>North East:</b> No rooms booked until confirmation. All hotels in Meghalaya/Arunachal Pradesh are non-AC and do not have lifts.
+              No refund whatsoever will be provided for any cancellation received on bookings made for the peak period
+              between 15th December and 15th January.
             </li>
             <li>
-              <b>Bhutan:</b> If hotels mentioned are unavailable, similar type of hotels will be provided.
+              No refunds will be issued for unused nights, early check-outs, or any portion of the service that is
+              voluntarily left unutilized by the traveler.
             </li>
           </ul>
         </Section>
 
-        <Section title="Itinerary and Package Policy">
-          <ul>
-            <li>The itinerary is a suggested plan; the company is responsible only for paid services.</li>
-            <li>No responsibility for additional services not charged for.</li>
-            <li>Itineraries may change due to natural or political disruptions.</li>
-            <li>Additional costs due to such changes are to be borne by the guest.</li>
-          </ul>
-        </Section>
-
-        <Section title="Weather and Health Advisory">
+        <Section title="4. Travel Documents">
           <ul>
             <li>
-              <b>North East:</b> Woolen clothes and jackets are advised. Travel with limited luggage.
+              Travelers are solely responsible for ensuring that they carry valid passports, appropriate visas, permits,
+              and all other required travel documents in accordance with the requirements of the destination and their
+              nationality.
             </li>
-            <li>Guests traveling to Assam, Meghalaya, or Arunachal Pradesh must be fully vaccinated or present a valid RTPCR (not older than 72 hours).</li>
-          </ul>
-        </Section>
-
-        <Section title="Amendment">
-          <ul>
-            <li>Changes to booked tours are considered cancellations, but minor amendments can be made with a communication fee.</li>
-          </ul>
-        </Section>
-
-        <Section title="Refund">
-          <ul>
-            <li>Refunds will be processed by the booking source via account payee cheque within 15 days.</li>
-            <li><b>NO REFUND WILL BE MADE AGAINST ANY UNUSED SERVICES, WHATEVER MAY BE THE REASON.</b></li>
-          </ul>
-        </Section>
-
-        <Section title="Prepone & Postpone">
-          <ul>
-            <li>Any postponement/cancellation must be communicated in writing at least 7 days before the scheduled departure.</li>
-            <li>A fee of ₹3,000 will apply for postponement.</li>
-          </ul>
-        </Section>
-
-        <Section title="Cancellation Policy">
-          <ul>
-            <li>(Common Across Regions, with Bhutan-specific details below)</li>
-            <li>Cancellation must be sent via Mail/Fax.</li>
-            <li>30+ Days: Communication Charges ₹2000 per person</li>
-            <li>21–30 Days: 25% of tour cost</li>
-            <li>11–20 Days: 50% of tour cost</li>
-            <li>10 or fewer Days: Full cancellation</li>
-            <li>Efforts will be made to minimize cancellation charges.</li>
             <li>
-              <b>Bhutan-specific:</b>
-              <ul>
-                <li>20–10 Days Before Departure: 20% cancellation fee</li>
-                <li>10–05 Days Before Departure: 50% cancellation fee</li>
-              </ul>
+              Travel Hub shall not be held liable in any manner for denied boarding, denied entry, or deportation
+              resulting from incomplete, expired, or improperly prepared travel documentation.
             </li>
           </ul>
         </Section>
 
-        <Section title="Disclaimers">
+        <Section title="5. Changes and Modifications">
           <ul>
-            <li>Unused accommodations, meals, transport, or tours are non-refundable.</li>
-            <li>Room allocation is based on availability.</li>
-            <li>No refund for dissatisfaction with services.</li>
-            <li>Company is not responsible for changes due to permit failure, government rules, or natural calamities.</li>
+            <li>
+              Any changes requested to existing bookings—including but not limited to travel dates, destinations, or
+              traveler names—may incur additional charges as per the applicable supplier and company policies at the
+              time of the modification.
+            </li>
+            <li>
+              Travel Hub reserves the right to modify itineraries when necessary, due to unforeseen circumstances such
+              as adverse weather conditions, strikes, safety concerns, or any other situation that may affect the smooth
+              and safe operation of the tour.
+            </li>
+          </ul>
+        </Section>
+
+        <Section title="6. Liability">
+          <ul>
+            <li>
+              Travel Hub acts strictly as an intermediary between clients and various service providers, such as
+              airlines, hotels, transport companies, and local vendors, and coordinates the arrangement of these
+              services on behalf of the traveler.
+            </li>
+            <li>
+              We shall not be held liable for delays, cancellations, accidents, injuries, or losses that are caused by
+              any third-party service provider or by circumstances that fall outside of our direct control.
+            </li>
+            <li>
+              Clients are strongly advised and encouraged to purchase a comprehensive travel insurance policy to protect
+              themselves against any unforeseen events, medical emergencies, or losses that may occur before or during
+              their journey.
+            </li>
+          </ul>
+        </Section>
+
+        <Section title="7. Health and Safety">
+          <ul>
+            <li>
+              Travelers must strictly comply with all health regulations, vaccination requirements, and safety
+              guidelines of the destination country or region that they are visiting.
+            </li>
+            <li>
+              Travel Hub will not be held responsible for any medical expenses, hospitalization costs, or health-related
+              charges incurred by the traveler during the course of travel.
+            </li>
+            <li>
+              Any restrictions related to COVID-19 or other pandemic situations are governed by the prevailing
+              government guidelines, and travelers are expected to remain updated with and adhere to all such
+              directives.
+            </li>
+          </ul>
+        </Section>
+
+        <Section title="8. Force Majeure">
+          <ul>
+            <li>
+              Travel Hub shall not be held liable for any failure or delay in the provision of services caused by events
+              that are beyond our reasonable control, including but not limited to natural disasters, political unrest,
+              civil disturbances, pandemics, strikes, or any new government regulations that impact travel and
+              hospitality services.
+            </li>
+          </ul>
+        </Section>
+
+        <Section title="9. Privacy Policy">
+          <ul>
+            <li>
+              Any personal information provided by the client during the booking process will be used solely for the
+              purpose of making and coordinating your travel arrangements and will not be shared for unrelated
+              commercial purposes.
+            </li>
+            <li>
+              Travel Hub fully respects client confidentiality and complies with all applicable data protection laws
+              currently in force in India, ensuring that your personal details are handled responsibly and with due
+              care.
+            </li>
+          </ul>
+        </Section>
+
+        <Section title="10. Governing Law">
+          <ul>
+            <li>
+              These Terms and Conditions are governed by, and shall be interpreted in accordance with, the laws of
+              India, as applicable to contracts executed and performed within the country.
+            </li>
+            <li>
+              Any disputes, claims, or proceedings arising out of or in connection with these Terms and Conditions shall
+              be subject to the exclusive jurisdiction of the competent courts located in New Delhi.
+            </li>
           </ul>
         </Section>
       </main>
